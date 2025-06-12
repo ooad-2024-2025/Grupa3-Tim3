@@ -1,8 +1,131 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
-}
+﻿<!DOCTYPE html>
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+<html lang="hr">
+
+<head>
+
+	<meta charset="UTF-8" />
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+	<title>VoziBa</title>
+
+	<style>
+
+		body {
+			margin: 0;
+			font-family: sans-serif;
+			background: linear-gradient(rgba(236, 0, 127, 0.6), rgba(236, 0, 127, 0.6)), url('/images/kljucevi.png') center/cover no-repeat;
+		}
+
+
+
+		.hero {
+			margin: 0;
+			height: 100vh;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			text-align: center;
+			color: white;
+		}
+
+
+
+		.hero-content {
+			max-width: 800px;
+			padding: 0 20px;
+		}
+
+
+
+			.hero-content h1 {
+				font-size: 56px;
+				margin-bottom: 20px;
+			}
+
+
+
+			.hero-content p {
+				font-size: 22px;
+				margin: 10px 0 30px;
+				line-height: 1.5;
+			}
+
+
+
+			.hero-content a {
+				display: inline-block;
+				background-color: white;
+				color: #ec007f;
+				font-weight: bold;
+				text-decoration: none;
+				font-size: 18px;
+				padding: 12px 30px;
+				border-radius: 4px;
+				transition: background-color 0.3s;
+			}
+
+
+
+				.hero-content a:hover {
+					background-color: #f5f5f5;
+				}
+
+		.o-nama-sekcija {
+			padding: 80px 20px;
+			text-align: center;
+			background-color: #f8f8f8; 
+			color: #333;
+		}
+
+			.o-nama-sekcija h2 {
+				font-size: 36px;
+				color: #ec007f;
+				margin-bottom: 20px;
+			}
+
+			.o-nama-sekcija p {
+				max-width: 800px;
+				margin: 0 auto;
+				line-height: 1.6;
+			}
+
+		html {
+			scroll-behavior: smooth;
+		}
+
+
+	</style>
+
+</head>
+
+<body>
+
+
+
+	<section class="hero">
+
+		<div class="hero-content">
+
+			<h1>VoziBa</h1>
+
+			<p>Iznajmi lahko. Ponudi jednostavno.<br>VoziBa — platforma za sve vozače!</p>
+
+			<a href="#o-nama">Learn More</a>
+
+		</div>
+
+	</section>
+
+	<section id="o-nama" class="o-nama-sekcija">
+		<h2>O nama</h2>
+		<p>VoziBa je inovativna platforma koja povezuje vlasnike vozila s korisnicima koji traže pouzdan i pristupačan najam. Naša misija je pojednostaviti proces iznajmljivanja automobila, pružajući sigurnost i transparentnost za sve sudionike. Bilo da ste vlasnik koji želi dodatno zaraditi ili korisnik koji treba vozilo za kratkoročni ili dugoročni najam, VoziBa je tu za vas.</p>
+		<p>Nudimo širok izbor vozila, od ekonomičnih gradskih automobila do prostranih SUV-ova i luksuznih limuzina. Naša korisnička podrška je uvijek dostupna da vam pomogne oko svih pitanja i nedoumica. Pridružite se zajednici VoziBa i iskusite slobodu putovanja na potpuno novi način!</p>
+	</section>
+
+
+
+</body>
+
+</html>

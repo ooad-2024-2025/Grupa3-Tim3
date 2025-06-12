@@ -1,0 +1,254 @@
+﻿@model VoziBa.Models.Korisnik
+
+@{
+    ViewData["Title"] = "Registracija";
+    Layout = "~/Views/Shared/_Layout.cshtml"; 
+}
+
+<style>
+    
+    body {
+        font-family:  sans-serif;
+		background-image: linear-gradient(rgba(255,255,255,0.7), rgba(255,255,255,0.7)), url('/images/lineupsunc.jpg');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        margin: 0;
+        padding: 50px;
+        
+    }
+
+    .registration-container {
+        display: flex;
+        max-width: 900px;
+        width: 100%;
+        background-color: #ffffff;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        border-radius: 15px;
+        overflow: hidden;
+        height:70%;
+    }
+
+    .features-list {
+        background-color: rgba(248, 249, 250, 0.9);
+        padding: 40px;
+        width: 45%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+        .features-list ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .features-list li {
+            font-size: 16px;
+            color: #555;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+        }
+
+        .features-list .fa-check-circle {
+            color: #E91E63; /* Roza boja kao na slici */
+            font-size: 22px;
+            margin-right: 15px;
+        }
+
+    /* Desna strana sa formom */
+    .registration-form {
+        padding: 40px;
+        width: 55%;
+    }
+
+        .registration-form h1 {
+            font-size: 28px;
+            font-weight: 700;
+            color: #E91E63;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        .registration-form p {
+            font-size: 14px;
+            color: #888;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+    .form-group {
+        margin-bottom: 15px;
+    }
+
+    .form-row {
+        display: flex;
+        gap: 15px;
+    }
+
+        .form-row .form-group {
+            width: 100%;
+        }
+
+    .form-control {
+        width: 100%;
+        padding: 12px 15px;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        font-size: 14px;
+        transition: border-color 0.3s;
+    }
+
+        .form-control:focus {
+            border-color: #E91E63;
+            outline: none;
+            box-shadow: 0 0 5px rgba(233, 30, 99, 0.2);
+        }
+
+    /* Stilizovanje za checkbox */
+    .form-check {
+        display: flex;
+        align-items: center;
+        margin-top: 20px;
+    }
+
+    .form-check-input {
+        margin-right: 10px;
+        accent-color: #E91E63;
+    }
+
+    .btn-register {
+        width: 100%;
+        padding: 15px;
+        background-color: #E91E63;
+        border: none;
+        border-radius: 8px;
+        color: white;
+        font-size: 16px;
+        font-weight: 600;
+        text-transform: uppercase;
+        cursor: pointer;
+        transition: background-color 0.3s;
+        margin-top: 15px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+        .btn-register:hover {
+            background-color: #c2185b;
+        }
+
+        .btn-register .fa-arrow-right {
+            margin-left: 10px;
+        }
+
+    .help-link {
+        display: block;
+        text-align: center;
+        margin-top: 20px;
+        color: #E91E63;
+        text-decoration: none;
+        font-size: 14px;
+    }
+
+        .help-link:hover {
+            text-decoration: underline;
+        }
+
+    /* Sakrivamo default labele jer koristimo placeholdere */
+    .control-label {
+        display: none;
+    }
+
+</style>
+
+<div class="registration-container">
+    <div class="features-list">
+        <ul>
+            <li><i class="fas fa-check-circle"></i> Brza i jednostavna rezervacija.</li>
+            <li><i class="fas fa-check-circle"></i> Sigurna i pouzdana platforma.</li>
+            <li><i class="fas fa-check-circle"></i> Jasna dostupnost i cijene vozila.</li>
+            <li><i class="fas fa-check-circle"></i> Voziš ili iznajmljuješ kad želiš.</li>
+            <li><i class="fas fa-check-circle"></i> Ušteda vremena i bez papirologije.</li>
+            <li><i class="fas fa-check-circle"></i> Vozila za svaki budžet i potrebu.</li>
+        </ul>
+    </div>
+    <div class="registration-form">
+        <h1>Registracija</h1>
+        <p>Sve počinje ovdje. Registruj se i vozi po svom.</p>
+
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="form-group">
+                <input asp-for="ime" class="form-control" placeholder="Ime i Prezime" />
+                <span asp-validation-for="ime" class="text-danger"></span>
+                <input asp-for="prezime" type="hidden" value="Default" />
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <input asp-for="brojTelefona" class="form-control" placeholder="Broj telefona" />
+                    <span asp-validation-for="brojTelefona" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <input asp-for="username" class="form-control" placeholder="Username" />
+                    <span asp-validation-for="username" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <input asp-for="email" class="form-control" placeholder="E-mail" />
+                <span asp-validation-for="email" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <input asp-for="lozinka" type="password" class="form-control" placeholder="Password" />
+                <span asp-validation-for="lozinka" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <input asp-for="datumRodjenja" onfocus="(this.type='date')" onblur="(this.type='text')" class="form-control" placeholder="Datum rođenja" />
+                <span asp-validation-for="datumRodjenja" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <select asp-for="uloga" class="form-control">
+                    <option value="" disabled selected>Izaberite ulogu</option>
+                    <option value="Korisnik">Korisnik</option>
+                    <option value="Vlasnik">Vlasnik</option>
+                </select>
+                <span asp-validation-for="uloga" class="text-danger"></span>
+            </div>
+
+
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" required>
+                <label class="form-check-label" for="flexCheckDefault">
+                    By clicking you agree to the Terms and Conditions
+                </label>
+            </div>
+
+            <div class="form-group">
+                <button type="submit" class="btn btn-register">
+                    Registruj se
+                    <i class="fas fa-arrow-right"></i>
+                </button>
+            </div>
+        </form>
+        <a href="#" class="help-link"><i class="fas fa-question-circle"></i> Need a help?</a>
+    </div>
+</div>
+
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

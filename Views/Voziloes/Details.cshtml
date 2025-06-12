@@ -1,0 +1,78 @@
+﻿@model VoziBa.Models.Vozilo
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Vozilo</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.korisnikId)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.korisnikId)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.godinaProizvodnje)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.godinaProizvodnje)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.brend)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.brend)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.model)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.model)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.boja)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.boja)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.tipGoriva)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.tipGoriva)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.transmisija)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.transmisija)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.cijenaNajma)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.cijenaNajma)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.opis)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.opis)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.slikaPath)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.slikaPath)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.voziloId">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

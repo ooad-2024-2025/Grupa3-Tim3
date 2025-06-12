@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿@using Microsoft.AspNetCore.Http;
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -7,28 +8,151 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/VoziBa.styles.css" asp-append-version="true" />
+    <style>
+        header {
+            display: grid;
+            grid-template-columns: auto 1fr auto;
+            align-items: center;
+            padding: 15px 40px;
+            background: white;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+        }
+
+        .logo img {
+            height: 40px;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+        }
+
+            nav a {
+                color: #ec007f;
+                text-decoration: none;
+                font-weight: bold;
+                transition: color 0.3s;
+                font-size: 16px;
+            }
+
+                nav a:hover {
+                    color: #a3005d;
+                }
+
+        .auth-buttons {
+            display: flex;
+            gap: 10px;
+        }
+
+            .auth-buttons a {
+                text-decoration: none;
+                padding: 8px 15px;
+                border-radius: 4px;
+                font-weight: bold;
+            }
+
+        .register {
+            color: #ec007f;
+        }
+
+        .login {
+            background-color: #ec007f;
+            color: white;
+        }
+
+        .profile-button { /* Dodani stil za dugme profila */
+            background-color: #ec007f; /* Možeš koristiti neku drugu boju */
+            color: white;
+            padding: 8px 15px;
+            border-radius: 4px;
+            font-weight: bold;
+            text-decoration: none;
+            text-decoration-color: #ffff
+            transition: background-color 0.3s;
+        }
+
+            .profile-button:hover {
+                background-color: #a3005d; /* Tamnija boja pri hoveru */
+            }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: white;
+            min-width: 150px;
+            box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+
+            .dropdown-content a {
+                display: block;
+                padding: 8px 12px;
+                color: black;
+                text-decoration: none;
+            }
+
+                .dropdown-content a:hover {
+                    background-color: #a3005d;
+                }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">VoziBa</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
+        <div class="logo">
+            <a href="/"><img src="/images/vozibalogopng.png" alt="VoziBa logo" /></a>
+        </div>
+
+        <nav>
+            <a asp-controller="Rezervacijas" asp-action="Index">REZERVACIJA</a>
+            <a asp-controller="Vozilas" asp-action="Index">VOZILA</a>
+            <a asp-controller="Kalkulators" asp-action="Index">KALKULATOR TROŠKOVA</a>
+            <a asp-controller="Faqs" asp-action="Index">FAQ</a>
         </nav>
+
+        <div class="auth-buttons">
+            @{
+                var loggedInUserId = Context.Session.GetString("LoggedInUserId");
+                var userRole = Context.Session.GetString("UserRole");
+                if (!string.IsNullOrEmpty(loggedInUserId))
+                {
+                    if (userRole == "administrator")
+                    {
+                        <a asp-controller="Admin" asp-action="Pocetna" class="profile-button">ADMIN</a>
+                    }
+                    <div class="dropdown">
+                        <a href="#" class="profile-button">PROFIL</a>
+                        <div class="dropdown-content">
+                            <a asp-controller="Korisniks" asp-action="Profil">Moj Profil</a>
+                            <a asp-controller="Korisniks" asp-action="Edit">Uredi Profil</a>
+                            <a asp-controller="Korisniks" asp-action="Odjava">Odjava</a>
+                        </div>
+                    </div>
+                }
+                else
+                {
+                    // Korisnik nije prijavljen
+                    <a asp-controller="Korisniks" asp-action="Create" class="register">REGISTRACIJA</a>
+                    <a asp-controller="Korisniks" asp-action="Prijava" class="login">PRIJAVA</a>
+                }
+            }
+        </div>
+
     </header>
     <div class="container">
         <main role="main" class="pb-3">

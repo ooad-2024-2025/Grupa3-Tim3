@@ -227,6 +227,10 @@ namespace VoziBa.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("korisnikId"));
 
+                    b.Property<string>("brojTelefona")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("datumRodjenja")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -236,6 +240,10 @@ namespace VoziBa.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("ime")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("lozinka")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -326,6 +334,10 @@ namespace VoziBa.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("opis")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("slikaPath")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 

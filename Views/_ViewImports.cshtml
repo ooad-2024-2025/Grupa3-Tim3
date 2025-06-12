@@ -1,3 +1,7 @@
 ﻿@using VoziBa
 @using VoziBa.Models
 @addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@addTagHelper *, VoziBa // Zamijeni YourProjectName sa stvarnim imenom tvog projekta (npr. VoziBa)
+@using Microsoft.AspNetCore.Http // Ovo je već tu, ali provjeri
+@* OVO JE NOVO I KLJUČNO! Omogućava await u svim pogledima *@
+@using System.Threading.Tasks

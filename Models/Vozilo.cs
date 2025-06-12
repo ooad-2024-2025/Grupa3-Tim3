@@ -20,5 +20,6 @@ namespace VoziBa.Models
         public Transmisija transmisija { get; set; }
         public double cijenaNajma { get; set; }
         public string opis {  get; set; }
+        public string slikaPath { get; set; }//cuva se path do slike, a ona se cuva u VoziBa\wwwroot\images\
     }
 }

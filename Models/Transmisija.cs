@@ -1,7 +1,13 @@
-﻿namespace VoziBa.Models
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace VoziBa.Models
 {
     public enum Transmisija
     {
-        automatik, manuelni
+        [Display(Name = "Automatik")]
+        automatik,
+
+        [Display(Name = "Manuelni")]
+        manuelni
     }
 }

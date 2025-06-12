@@ -1,7 +1,24 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "C:\\Users\\DT User\\source\\repos\\VoziBa\\",
-  "Documents": [],
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{C2A77B10-F454-4296-B92E-D85741EB8977}|VoziBa.csproj|c:\\users\\dt user\\source\\repos\\voziba\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{C2A77B10-F454-4296-B92E-D85741EB8977}|VoziBa.csproj|solutionrelative:views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C2A77B10-F454-4296-B92E-D85741EB8977}|VoziBa.csproj|c:\\users\\dt user\\source\\repos\\voziba\\views\\korisniks\\prijava.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{C2A77B10-F454-4296-B92E-D85741EB8977}|VoziBa.csproj|solutionrelative:views\\korisniks\\prijava.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C2A77B10-F454-4296-B92E-D85741EB8977}|VoziBa.csproj|c:\\users\\dt user\\source\\repos\\voziba\\views\\shared\\_validationscriptspartial.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{C2A77B10-F454-4296-B92E-D85741EB8977}|VoziBa.csproj|solutionrelative:views\\shared\\_validationscriptspartial.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C2A77B10-F454-4296-B92E-D85741EB8977}|VoziBa.csproj|c:\\users\\dt user\\source\\repos\\voziba\\views\\korisniks\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{C2A77B10-F454-4296-B92E-D85741EB8977}|VoziBa.csproj|solutionrelative:views\\korisniks\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -9,15 +26,59 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": -1,
+          "SelectedChildIndex": 0,
           "Children": [
             {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "C:\\Users\\DT User\\source\\repos\\VoziBa\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "C:\\Users\\DT User\\source\\repos\\VoziBa\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "Views\\Shared\\_Layout.cshtml",
+              "ViewState": "AgIAAHgAAAAAAAAAAAAAAIYAAAAVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-06-12T17:57:37.833Z",
+              "EditorCaption": ""
             },
             {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{cce594b6-0c39-4442-ba28-10c64ac7e89f}"
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "_ValidationScriptsPartial.cshtml",
+              "DocumentMoniker": "C:\\Users\\DT User\\source\\repos\\VoziBa\\Views\\Shared\\_ValidationScriptsPartial.cshtml",
+              "RelativeDocumentMoniker": "Views\\Shared\\_ValidationScriptsPartial.cshtml",
+              "ToolTip": "C:\\Users\\DT User\\source\\repos\\VoziBa\\Views\\Shared\\_ValidationScriptsPartial.cshtml",
+              "RelativeToolTip": "Views\\Shared\\_ValidationScriptsPartial.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-06-12T17:57:37.09Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Prijava.cshtml",
+              "DocumentMoniker": "C:\\Users\\DT User\\source\\repos\\VoziBa\\Views\\Korisniks\\Prijava.cshtml",
+              "RelativeDocumentMoniker": "Views\\Korisniks\\Prijava.cshtml",
+              "ToolTip": "C:\\Users\\DT User\\source\\repos\\VoziBa\\Views\\Korisniks\\Prijava.cshtml",
+              "RelativeToolTip": "Views\\Korisniks\\Prijava.cshtml",
+              "ViewState": "AgIAAGkAAAAAAAAAAAASwHoAAAAkAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-06-12T17:54:21.985Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Create.cshtml",
+              "DocumentMoniker": "C:\\Users\\DT User\\source\\repos\\VoziBa\\Views\\Korisniks\\Create.cshtml",
+              "RelativeDocumentMoniker": "Views\\Korisniks\\Create.cshtml",
+              "ToolTip": "C:\\Users\\DT User\\source\\repos\\VoziBa\\Views\\Korisniks\\Create.cshtml",
+              "RelativeToolTip": "Views\\Korisniks\\Create.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAcAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-06-12T17:40:45.568Z",
+              "EditorCaption": ""
             }
           ]
         }
