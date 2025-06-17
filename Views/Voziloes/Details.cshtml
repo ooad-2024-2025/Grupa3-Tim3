@@ -1,78 +1,41 @@
 ﻿@model VoziBa.Models.Vozilo
 
 @{
-    ViewData["Title"] = "Details";
+    ViewData["Title"] = "Detalji Vozila - " + Model.brend + " " + Model.model;
 }
 
-<h1>Details</h1>
+<div class="details-container">
 
-<div>
-    <h4>Vozilo</h4>
-    <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.korisnikId)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.korisnikId)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.godinaProizvodnje)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.godinaProizvodnje)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.brend)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.brend)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.model)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.model)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.boja)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.boja)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.tipGoriva)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.tipGoriva)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.transmisija)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.transmisija)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.cijenaNajma)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.cijenaNajma)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.opis)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.opis)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.slikaPath)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.slikaPath)
-        </dd>
-    </dl>
-</div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model?.voziloId">Edit</a> |
-    <a asp-action="Index">Back to List</a>
+    <div class="vehicle-details-image">
+        <img src="~/images/@Model.slikaPath" alt="@Model.brend @Model.model" onerror="this.onerror=null;this.src='/images/placeholder.png';" />
+    </div>
+
+    <div class="vehicle-details-info">
+        <h1 class="details-title">@Model.brend @Model.model</h1>
+
+        <p class="details-description">
+            @Model.opis
+        </p>
+
+        <dl class="details-list">
+            <dt>Godište:</dt>
+            <dd>@Model.godinaProizvodnje</dd>
+
+            <dt>Boja:</dt>
+            <dd>@Model.boja</dd>
+
+            <dt>Tip goriva:</dt>
+            <dd>@Model.tipGoriva</dd>
+
+            <dt>Transmisija:</dt>
+            <dd>@Model.transmisija</dd>
+        </dl>
+
+        <div class="price-and-action">
+            <p class="details-price">@Model.cijenaNajma.ToString("0.00") KM/dan</p>
+            <a asp-controller="Rezervacijas" asp-action="Create" asp-route-voziloId="@Model.voziloId" class="btn btn-reserve">
+                <i class="fas fa-calendar-check"></i> Rezerviši vozilo
+            </a>
+        </div>
+    </div>
 </div>

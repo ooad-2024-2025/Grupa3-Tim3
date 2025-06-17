@@ -104,11 +104,33 @@
 
                 .dropdown-content a:hover {
                     background-color: #a3005d;
+                    color: white;
                 }
 
         .dropdown:hover .dropdown-content {
             display: block;
         }
+
+        .alert {
+            padding: 15px;
+            margin-bottom: 20px;
+            border: 1px solid transparent;
+            border-radius: 4px;
+            text-align: center;
+        }
+
+        .alert-success {
+            color: #3c763d;
+            background-color: #dff0d8;
+            border-color: #d6e9c6;
+        }
+
+        .alert-danger {
+            color: #a94442;
+            background-color: #f2dede;
+            border-color: #ebccd1;
+        }
+
     </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
 </head>
@@ -119,7 +141,7 @@
         </div>
 
         <nav>
-            <a asp-controller="Rezervacijas" asp-action="Index">REZERVACIJA</a>
+            <a asp-controller="Rezervacijas" asp-action="Create">REZERVACIJA</a>
             <a asp-controller="Voziloes" asp-action="Index">VOZILA</a>
             <a asp-controller="Kalkulators" asp-action="Index">KALKULATOR TROŠKOVA</a>
             <a asp-controller="Faqs" asp-action="Index">FAQ</a>
@@ -139,17 +161,18 @@
                             <div class="dropdown-content">
                                 <a asp-controller="Korisniks" asp-action="Profil">Moj Profil</a>
                                 <a asp-controller="Korisniks" asp-action="Delete">Kontrola korisnika</a> 
-                                <a asp-controller="Voziloes" asp-action="Delete">Kontrola vozila</a> 
+                                <a asp-controller="Voziloes" asp-action="UpravljanjeAutomobilima">Kontrola vozila</a> 
                                 <a asp-controller="Korisniks" asp-action="Odjava">Odjava</a>
                             </div>
                         }
-                        else if (userRole == "vlasnik") 
+                        else if (userRole == "vlasnik")
                         {
                             <a href="#" class="profile-button">PROFIL</a>
                             <div class="dropdown-content">
                                 <a asp-controller="Korisniks" asp-action="Profil">Moj Profil</a>
                                 <a asp-controller="Korisniks" asp-action="Edit">Uredi Profil</a>
-                                <a asp-controller="Vozilas" asp-action="Create">Objavi oglas</a> 
+                                <a asp-controller="Vozilas" asp-action="Create">Objavi oglas</a>
+                                <a asp-controller="Korisniks" asp-action="PregledRezervacijaVlasnik">Pregled rezervacija</a>
                                 <a asp-controller="Korisniks" asp-action="Odjava">Odjava</a>
                             </div>
                         }
@@ -176,6 +199,18 @@
     </header>
     <div class="container">
         <main role="main" class="pb-3">
+           @if (TempData["SuccessMessage"] != null)
+            {
+            <div class="alert alert-success" role="alert">
+                @TempData["SuccessMessage"]
+            </div>
+            }
+            @if (TempData["ErrorMessage"] != null)
+            {
+                <div class="alert alert-danger" role="alert">
+                    @TempData["ErrorMessage"]
+                </div>
+            }
             @RenderBody()
         </main>
     </div>
@@ -189,5 +224,6 @@
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)
+
 </body>
 </html>

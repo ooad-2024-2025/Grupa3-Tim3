@@ -1,43 +1,64 @@
 ﻿@model VoziBa.Models.Rezervacija
-
 @{
-    ViewData["Title"] = "Create";
+    ViewData["Title"] = "Nova Rezervacija";
 }
 
-<h1>Create</h1>
+<div class="reservation-background">
+    <div class="reservation-container">
+        <div class="info-panel">
+            <h2>Koraci za rezervaciju</h2>
+            <ul>
+                <li><i class="fas fa-check-circle"></i> Brza i jednostavna rezervacija.</li>
+                <li><i class="fas fa-check-circle"></i> Odaberi datum početka i završetka.</li>
+                <li><i class="fas fa-check-circle"></i> Odaberi željeno vozilo.</li>
+                <li><i class="fas fa-check-circle"></i> Pregledaj troškove.</li>
+                <li><i class="fas fa-check-circle"></i> Rezerviši.</li>
+            </ul>
+        </div>
 
-<h4>Rezervacija</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Create">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="osobaId" class="control-label"></label>
-                <input asp-for="osobaId" class="form-control" />
-                <span asp-validation-for="osobaId" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="recenzijaId" class="control-label"></label>
-                <input asp-for="recenzijaId" class="form-control" />
-                <span asp-validation-for="recenzijaId" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="voziloID" class="control-label"></label>
-                <input asp-for="voziloID" class="form-control" />
-                <span asp-validation-for="voziloID" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
-            </div>
-        </form>
+        <div class="form-panel">
+            @if (ViewBag.SuccessMessage != null)
+            {
+                <div class="alert-success">
+                    <i class="fas fa-check-circle"></i> @ViewBag.SuccessMessage
+                </div>
+            }
+            <h1 class="main-title">REZERVACIJA</h1>
+            <p class="subtitle">Tvoje putovanje počinje ovdje</p>
+
+            <form asp-action="Create" method="post">
+                @Html.AntiForgeryToken()
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                <div class="date-picker-group">
+                    <div class="form-group">
+                        <label asp-for="datumPocetka">DATUM POČETKA REZERVACIJE</label>
+                        <input asp-for="datumPocetka" type="date" class="form-control" />
+                        <span asp-validation-for="datumPocetka" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="datumZavrsetka">DATUM ZAVRŠETKA REZERVACIJE</label>
+                        <input asp-for="datumZavrsetka" type="date" class="form-control" />
+                        <span asp-validation-for="datumZavrsetka" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="form-group vehicle-select">
+                    <label asp-for="voziloID">IZABERI ŽELJENO VOZILO</label>
+                    <select asp-for="voziloID" class="form-control" asp-items="ViewBag.Vozila">
+                        <option value="">-- Odaberi vozilo --</option>
+                    </select>
+                    <span asp-validation-for="voziloID" class="text-danger"></span>
+                </div>
+
+                <a asp-controller="Kalkulators" asp-action="Index" class="cost-calculator-link">
+                    <i class="fas fa-calculator"></i> Kalkulator troškova
+                </a>
+
+                <div class="form-group">
+                    <button type="submit" class="btn-submit">REZERVIŠI <i class="fas fa-arrow-right"></i></button>
+                </div>
+            </form>
+        </div>
     </div>
 </div>
-
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
-
-@section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-}

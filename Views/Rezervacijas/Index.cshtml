@@ -1,47 +1,68 @@
 ﻿@model IEnumerable<VoziBa.Models.Rezervacija>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Sve Rezervacije";
 }
 
-<h1>Index</h1>
+<h1>Sve Rezervacije</h1>
 
 <p>
-    <a asp-action="Create">Create New</a>
+    <a asp-action="Create" class="btn btn-primary">Kreiraj Novu Rezervaciju</a>
 </p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.osobaId)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.recenzijaId)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.voziloID)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.osobaId)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.recenzijaId)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.voziloID)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.rezervacijaID">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.rezervacijaID">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.rezervacijaID">Delete</a>
-            </td>
-        </tr>
+
+@if (!Model.Any())
+{
+    <p>Trenutno nema rezervacija.</p>
 }
-    </tbody>
-</table>
+else
+{
+    <table class="table table-striped table-bordered">
+        <thead>
+            <tr>
+                <th>
+                    ID Rezervacije
+                </th>
+                <th>
+                    ID Korisnika
+                </th>
+                <th>
+                    ID Vozila
+                </th>
+                <th>
+                    Datum Početka
+                </th>
+                <th>
+                    Datum Završetka
+                </th>
+                <th>Akcije</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.rezervacijaID)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.osobaId)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.voziloID)
+                    </td>
+                    <td>
+                        @item.datumPocetka.ToShortDateString()
+                    </td>
+                    <td>
+                        @item.datumZavrsetka.ToShortDateString()
+                    </td>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.rezervacijaID" class="btn btn-sm btn-info">Uredi</a> |
+                        <a asp-action="Details" asp-route-id="@item.rezervacijaID" class="btn btn-sm btn-secondary">Detalji</a> |
+                        <a asp-action="Delete" asp-route-id="@item.rezervacijaID" class="btn btn-sm btn-danger">Obriši</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}

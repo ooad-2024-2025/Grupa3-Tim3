@@ -1,6 +1,17 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using System.Globalization;
+using Microsoft.AspNetCore.Localization;
+
 
 var builder = WebApplication.CreateBuilder(args);
+var supportedCultures = new[] { new CultureInfo("bs-BA") };
+var localizationOptions = new RequestLocalizationOptions
+{
+    DefaultRequestCulture = new RequestCulture("bs-BA"),
+    SupportedCultures = supportedCultures,
+    SupportedUICultures = supportedCultures
+};
+
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
@@ -35,6 +46,7 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
+app.UseRequestLocalization(localizationOptions);
 
 
 

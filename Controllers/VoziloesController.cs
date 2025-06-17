@@ -152,5 +152,10 @@ namespace VoziBa.Controllers
         {
             return _context.Vozilo.Any(e => e.voziloId == id);
         }
+        public async Task<IActionResult> UpravljanjeAutomobilima()
+        {
+            // Ova akcija jednostavno uzima sva vozila iz baze i prosljeđuje ih na View
+            return View(await _context.Vozilo.ToListAsync());
+        }
     }
 }

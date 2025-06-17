@@ -1,22 +1,461 @@
 html {
-  font-size: 14px;
+    font-size: 14px;
 }
 
 @media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
+    html {
+        font-size: 16px;
+    }
 }
 
 .btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
-  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+    box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
 }
 
+
 html {
-  position: relative;
-  min-height: 100%;
+    position: relative;
+    min-height: 100%;
 }
 
 body {
-  margin-bottom: 60px;
+    padding-top: 90px;
 }
+
+.calculator-background {
+    background-image: url('../images/kalkulator-ba.jpg');
+    background-size: cover;
+    background-position: center;
+    height: calc(100vh - 70px); /* Visina ekrana minus visina headera */
+    margin-top: 70px; /* Pomeraj zbog fiksnog headera */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    position: relative;
+}
+
+    .calculator-background::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.5); /* Polu-prozirni crni sloj */
+        z-index: 1;
+    }
+
+.calculator-container {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    background: rgba(10, 10, 10, 0.65); /* Tamna pozadina za formu */
+    padding: 40px 50px;
+    border-radius: 15px;
+    color: white;
+    max-width: 900px;
+}
+
+.calculator-form h1 {
+    font-size: 32px;
+    font-weight: bold;
+    color: #ec007f; /* Roza boja */
+    margin-bottom: 30px;
+    text-align: left;
+}
+
+.calculator-form .form-group {
+    margin-bottom: 20px;
+}
+
+    .calculator-form .form-group label {
+        display: block;
+        margin-bottom: 8px;
+        font-weight: bold;
+        font-size: 14px;
+    }
+
+.calculator-form .form-control {
+    width: 350px;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #555;
+    background-color: #333;
+    color: white;
+}
+
+.calculator-form .btn-submit {
+    background-color: #ec007f;
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    width: 100%;
+    margin-top: 15px;
+    font-size: 16px;
+}
+
+    .calculator-form .btn-submit:hover {
+        background-color: #a3005d;
+    }
+
+.calculator-result .result-bubble {
+    background-color: white;
+    color: black;
+    padding: 30px 40px;
+    border-radius: 100px; /* Zaobljeni oblik */
+    font-size: 36px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+    .calculator-result .result-bubble span {
+        color: #ec007f; /* Roza boja za iznos */
+    }
+
+.vozila-container {
+    max-width: 1200px;
+    margin: 0 auto 20px auto; /* gore=0, lijevo/desno=auto, dole=20px */
+    padding: 20px;
+}
+
+    .vozila-container h1 {
+        text-align: center;
+        color: #333;
+        margin-bottom: 40px;
+        font-size: 2.5rem;
+    }
+
+.vehicle-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+}
+
+.vehicle-card {
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+    .vehicle-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    }
+
+.vehicle-image-container {
+    width: 100%;
+    height: 200px; /* Fiksna visina za sliku */
+    overflow: hidden;
+}
+
+.vehicle-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Osigurava da slika pokrije prostor bez izobli?enja */
+    display: block;
+}
+
+.vehicle-details {
+    padding: 20px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1; /* Omogu?ava da ovaj dio raste i popuni prostor */
+}
+
+.model-name {
+    font-size: 1.4em;
+    color: #333;
+    margin: 0 0 20px 0; /* Pove?an razmak ispod imena modela */
+    font-weight: 600;
+}
+
+.btn-details {
+    background-color: #333;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s;
+    margin-top: auto; /* Gura dugme na dno kartice */
+}
+
+    .btn-details:hover {
+        background-color: #ec007f;
+        color: white;
+    }
+.reservation-background {
+    background-image: url('../images/lineupsunc.jpg'); /* ISPRAVLJENO IME SLIKE */
+    background-size: cover;
+    background-position: center;
+    padding: 40px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: calc(100vh - 90px); /* 90px je otprilike visina tvog headera */
+    position: relative;
+}
+
+    .reservation-background::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(255, 255, 255, 0.4); /* Malo prozirnija pozadina */
+        backdrop-filter: blur(5px); /* Efekat zamu?enja */
+        z-index: 1;
+    }
+
+.reservation-container {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    gap: 40px;
+    background: rgba(255, 255, 255, 0.7);
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    max-width: 1100px;
+    width: 100%;
+}
+
+/* Lijevi panel */
+.info-panel {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    flex-basis: 35%;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+    .info-panel h2 {
+        font-size: 1.4rem;
+        margin-bottom: 20px;
+        color: #333;
+    }
+
+    .info-panel ul {
+        list-style: none;
+        padding: 0;
+    }
+
+        .info-panel ul li {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: #555;
+            font-size: 0.95rem;
+        }
+
+    .info-panel .fa-check-circle {
+        color: #ec007f; /* Roza boja */
+        font-size: 1.2rem;
+    }
+
+/* Desni panel - Forma */
+.form-panel {
+    flex-basis: 65%;
+    text-align: center;
+}
+
+.main-title {
+    color: #ec007f;
+    font-weight: bold;
+    font-size: 2.8rem;
+    letter-spacing: 2px;
+}
+
+.subtitle {
+    font-size: 1.2rem;
+    color: #555;
+    margin-top: -10px;
+    margin-bottom: 30px;
+}
+
+.date-picker-group {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+    .date-picker-group .form-group {
+        flex: 1;
+    }
+
+.form-group {
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+    .form-group label {
+        display: block;
+        margin-bottom: 8px;
+        font-weight: bold;
+        font-size: 0.8rem;
+        color: #555;
+        text-transform: uppercase;
+    }
+
+    .form-group .form-control {
+        width: 100%;
+        padding: 12px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 1rem;
+        box-sizing: border-box;
+    }
+
+.cost-calculator-link {
+    display: inline-block;
+    margin-bottom: 20px;
+    color: #ec007f;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+    .cost-calculator-link:hover {
+        text-decoration: underline;
+    }
+
+.btn-submit {
+    width: 100%;
+    padding: 15px;
+    border: none;
+    background-color: #ec007f;
+    color: white;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+    .btn-submit:hover {
+        background-color: #a3005d;
+    }
+.alert-success {
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    color: #155724;
+    background-color: #d4edda;
+    border: 1px solid #c3e6cb;
+    text-align: left;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.details-container {
+    display: flex; /* Klju?no za layout sa dva stuba */
+    flex-wrap: wrap; /* Omogu?ava prelamanje na manjim ekranima */
+    gap: 40px; /* Razmak izme?u slike i teksta */
+    max-width: 1100px;
+    margin: 40px auto; /* Centrira kontejner */
+    padding: 40px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.1);
+}
+
+.vehicle-details-image {
+    flex: 1; /* Zauzima jedan dio prostora */
+    min-width: 350px; /* Minimalna širina prije prelamanja */
+}
+
+    .vehicle-details-image img {
+        width: 100%;
+        height: auto;
+        border-radius: 8px;
+        object-fit: cover;
+    }
+
+.vehicle-details-info {
+    flex: 1; /* Zauzima jedan dio prostora */
+    display: flex;
+    flex-direction: column;
+}
+
+.details-title {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #333;
+    margin-top: 0;
+    margin-bottom: 15px;
+}
+
+.details-description {
+    font-size: 1rem;
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 25px;
+}
+
+.details-list {
+    display: grid;
+    grid-template-columns: 120px 1fr; /* Širina za labelu i vrijednost */
+    gap: 15px;
+    font-size: 1rem;
+    margin-bottom: 25px;
+}
+
+    .details-list dt { /* dt je labela (npr. "Godište:") */
+        font-weight: bold;
+        color: #333;
+    }
+
+    .details-list dd { /* dd je vrijednost (npr. "2023") */
+        margin-left: 0;
+        color: #555;
+    }
+
+.price-and-action {
+    margin-top: auto; /* Gura ovaj dio na dno desne kolone */
+    padding-top: 20px;
+    border-top: 1px solid #eee;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.details-price {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #ec007f; /* Roza boja */
+    margin: 0;
+}
+
+.btn-reserve {
+    background-color: #ec007f;
+    color: white;
+    padding: 12px 25px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1rem;
+    transition: background-color 0.3s;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+    .btn-reserve:hover {
+        background-color: #a3005d;
+        color: white;
+    }

@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\DT User\\source\\repos\\VoziBa\\VoziBa.csproj": {}
+    "C:\\Users\\Korisnik\\Documents\\GitHub\\Grupa3-Tim3\\VoziBa.csproj": {}
   },
   "projects": {
-    "C:\\Users\\DT User\\source\\repos\\VoziBa\\VoziBa.csproj": {
+    "C:\\Users\\Korisnik\\Documents\\GitHub\\Grupa3-Tim3\\VoziBa.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\DT User\\source\\repos\\VoziBa\\VoziBa.csproj",
+        "projectUniqueName": "C:\\Users\\Korisnik\\Documents\\GitHub\\Grupa3-Tim3\\VoziBa.csproj",
         "projectName": "VoziBa",
-        "projectPath": "C:\\Users\\DT User\\source\\repos\\VoziBa\\VoziBa.csproj",
-        "packagesPath": "C:\\Users\\DT User\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\DT User\\source\\repos\\VoziBa\\obj\\",
+        "projectPath": "C:\\Users\\Korisnik\\Documents\\GitHub\\Grupa3-Tim3\\VoziBa.csproj",
+        "packagesPath": "C:\\Users\\Korisnik\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Korisnik\\Documents\\GitHub\\Grupa3-Tim3\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\DT User\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Korisnik\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -44,7 +44,7 @@
           "auditLevel": "low",
           "auditMode": "direct"
         },
-        "SdkAnalysisLevel": "9.0.300"
+        "SdkAnalysisLevel": "9.0.200"
       },
       "frameworks": {
         "net8.0": {
@@ -92,7 +92,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.300/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.201/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
