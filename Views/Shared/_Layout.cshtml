@@ -73,7 +73,6 @@
             border-radius: 4px;
             font-weight: bold;
             text-decoration: none;
-            /* Removed text-decoration-color: #ffff as it's not standard and might cause issues */
             transition: background-color 0.3s;
         }
 
@@ -155,13 +154,13 @@
                 if (!string.IsNullOrEmpty(loggedInUserId))
                 {
                     <div class="dropdown">
-                        @if (userRole == "administrator") 
+                        @if (userRole == "administrator")
                         {
                             <a asp-controller="Admin" asp-action="Pocetna" class="profile-button">ADMIN</a>
                             <div class="dropdown-content">
                                 <a asp-controller="Korisniks" asp-action="Profil">Moj Profil</a>
-                                <a asp-controller="Korisniks" asp-action="Delete">Kontrola korisnika</a> 
-                                <a asp-controller="Voziloes" asp-action="UpravljanjeAutomobilima">Kontrola vozila</a> 
+                                <a asp-controller="Korisniks" asp-action="Index">Kontrola korisnika</a>
+                                <a asp-controller="Voziloes" asp-action="Index">Kontrola vozila</a>
                                 <a asp-controller="Korisniks" asp-action="Odjava">Odjava</a>
                             </div>
                         }
@@ -170,18 +169,19 @@
                             <a href="#" class="profile-button">PROFIL</a>
                             <div class="dropdown-content">
                                 <a asp-controller="Korisniks" asp-action="Profil">Moj Profil</a>
-                                <a asp-controller="Korisniks" asp-action="Edit">Uredi Profil</a>
-                                <a asp-controller="Vozilas" asp-action="Create">Objavi oglas</a>
+                                <a asp-controller="Korisniks" asp-action="MyProfileEdit">Uredi Profil</a>
+                                <a asp-controller="Voziloes" asp-action="Create">Objavi oglas</a>
                                 <a asp-controller="Korisniks" asp-action="PregledRezervacijaVlasnik">Pregled rezervacija</a>
                                 <a asp-controller="Korisniks" asp-action="Odjava">Odjava</a>
                             </div>
                         }
-                        else
+                        else // Obični korisnik
                         {
                             <a href="#" class="profile-button">PROFIL</a>
                             <div class="dropdown-content">
                                 <a asp-controller="Korisniks" asp-action="Profil">Moj Profil</a>
-                                <a asp-controller="Korisniks" asp-action="Edit">Uredi Profil</a>
+                                <a asp-controller="Korisniks" asp-action="MyProfileEdit">Uredi Profil</a>
+                                <a asp-controller="Korisniks" asp-action="PregledRezervacijaKorisnik">Pregled rezervacija</a>
                                 <a asp-controller="Korisniks" asp-action="Odjava">Odjava</a>
                             </div>
                         }
@@ -199,11 +199,11 @@
     </header>
     <div class="container">
         <main role="main" class="pb-3">
-           @if (TempData["SuccessMessage"] != null)
+            @if (TempData["SuccessMessage"] != null)
             {
-            <div class="alert alert-success" role="alert">
-                @TempData["SuccessMessage"]
-            </div>
+                <div class="alert alert-success" role="alert">
+                    @TempData["SuccessMessage"]
+                </div>
             }
             @if (TempData["ErrorMessage"] != null)
             {

@@ -17,141 +17,147 @@ build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = VoziBa
 build_property.RootNamespace = VoziBa
-build_property.ProjectDir = C:\Users\Korisnik\Documents\GitHub\Grupa3-Tim3\
+build_property.ProjectDir = C:\Users\DT User\Desktop\ooad\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 8.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\Korisnik\Documents\GitHub\Grupa3-Tim3
+build_property.MSBuildProjectDirectory = C:\Users\DT User\Desktop\ooad
 build_property._RazorSourceGeneratorDebug = 
-build_property.EffectiveAnalysisLevelStyle = 8.0
-build_property.EnableCodeStyleSeverity = 
 
-[C:/Users/Korisnik/Documents/GitHub/Grupa3-Tim3/Views/Faqs/Index.cshtml]
+[C:/Users/DT User/Desktop/ooad/Views/Faqs/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRmFxc1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Korisnik/Documents/GitHub/Grupa3-Tim3/Views/Home/Index.cshtml]
+[C:/Users/DT User/Desktop/ooad/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Korisnik/Documents/GitHub/Grupa3-Tim3/Views/Home/Privacy.cshtml]
+[C:/Users/DT User/Desktop/ooad/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Korisnik/Documents/GitHub/Grupa3-Tim3/Views/Kalkulators/Index.cshtml]
+[C:/Users/DT User/Desktop/ooad/Views/Kalkulators/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcS2Fsa3VsYXRvcnNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Korisnik/Documents/GitHub/Grupa3-Tim3/Views/Korisniks/Create.cshtml]
+[C:/Users/DT User/Desktop/ooad/Views/Korisniks/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcS29yaXNuaWtzXENyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Korisnik/Documents/GitHub/Grupa3-Tim3/Views/Korisniks/Delete.cshtml]
+[C:/Users/DT User/Desktop/ooad/Views/Korisniks/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcS29yaXNuaWtzXERlbGV0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Korisnik/Documents/GitHub/Grupa3-Tim3/Views/Korisniks/Details.cshtml]
+[C:/Users/DT User/Desktop/ooad/Views/Korisniks/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcS29yaXNuaWtzXERldGFpbHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Korisnik/Documents/GitHub/Grupa3-Tim3/Views/Korisniks/Edit.cshtml]
+[C:/Users/DT User/Desktop/ooad/Views/Korisniks/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcS29yaXNuaWtzXEVkaXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Korisnik/Documents/GitHub/Grupa3-Tim3/Views/Korisniks/Index.cshtml]
+[C:/Users/DT User/Desktop/ooad/Views/Korisniks/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcS29yaXNuaWtzXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Korisnik/Documents/GitHub/Grupa3-Tim3/Views/Korisniks/Prijava.cshtml]
+[C:/Users/DT User/Desktop/ooad/Views/Korisniks/MyProfileEdit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcS29yaXNuaWtzXE15UHJvZmlsZUVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/DT User/Desktop/ooad/Views/Korisniks/Prijava.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcS29yaXNuaWtzXFByaWphdmEuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Korisnik/Documents/GitHub/Grupa3-Tim3/Views/Korisniks/UspjesnaRegistracija.cshtml]
+[C:/Users/DT User/Desktop/ooad/Views/Korisniks/Profil1.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcS29yaXNuaWtzXFByb2ZpbDEuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/DT User/Desktop/ooad/Views/Korisniks/UspjesnaRegistracija.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcS29yaXNuaWtzXFVzcGplc25hUmVnaXN0cmFjaWphLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Korisnik/Documents/GitHub/Grupa3-Tim3/Views/Recenzijas/Create.cshtml]
+[C:/Users/DT User/Desktop/ooad/Views/Recenzijas/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVjZW56aWphc1xDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Korisnik/Documents/GitHub/Grupa3-Tim3/Views/Recenzijas/Delete.cshtml]
+[C:/Users/DT User/Desktop/ooad/Views/Recenzijas/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVjZW56aWphc1xEZWxldGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Korisnik/Documents/GitHub/Grupa3-Tim3/Views/Recenzijas/Details.cshtml]
+[C:/Users/DT User/Desktop/ooad/Views/Recenzijas/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVjZW56aWphc1xEZXRhaWxzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Korisnik/Documents/GitHub/Grupa3-Tim3/Views/Recenzijas/Edit.cshtml]
+[C:/Users/DT User/Desktop/ooad/Views/Recenzijas/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVjZW56aWphc1xFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Korisnik/Documents/GitHub/Grupa3-Tim3/Views/Recenzijas/Index.cshtml]
+[C:/Users/DT User/Desktop/ooad/Views/Recenzijas/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVjZW56aWphc1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Korisnik/Documents/GitHub/Grupa3-Tim3/Views/Rezervacijas/Create.cshtml]
+[C:/Users/DT User/Desktop/ooad/Views/Rezervacijas/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmV6ZXJ2YWNpamFzXENyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Korisnik/Documents/GitHub/Grupa3-Tim3/Views/Rezervacijas/Delete.cshtml]
+[C:/Users/DT User/Desktop/ooad/Views/Rezervacijas/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmV6ZXJ2YWNpamFzXERlbGV0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Korisnik/Documents/GitHub/Grupa3-Tim3/Views/Rezervacijas/Details.cshtml]
+[C:/Users/DT User/Desktop/ooad/Views/Rezervacijas/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmV6ZXJ2YWNpamFzXERldGFpbHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Korisnik/Documents/GitHub/Grupa3-Tim3/Views/Rezervacijas/Edit.cshtml]
+[C:/Users/DT User/Desktop/ooad/Views/Rezervacijas/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmV6ZXJ2YWNpamFzXEVkaXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Korisnik/Documents/GitHub/Grupa3-Tim3/Views/Rezervacijas/Index.cshtml]
+[C:/Users/DT User/Desktop/ooad/Views/Rezervacijas/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmV6ZXJ2YWNpamFzXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Korisnik/Documents/GitHub/Grupa3-Tim3/Views/Shared/Error.cshtml]
+[C:/Users/DT User/Desktop/ooad/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Korisnik/Documents/GitHub/Grupa3-Tim3/Views/Shared/_ValidationScriptsPartial.cshtml]
+[C:/Users/DT User/Desktop/ooad/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Korisnik/Documents/GitHub/Grupa3-Tim3/Views/Voziloes/Create.cshtml]
+[C:/Users/DT User/Desktop/ooad/Views/Voziloes/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVm96aWxvZXNcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Korisnik/Documents/GitHub/Grupa3-Tim3/Views/Voziloes/Delete.cshtml]
+[C:/Users/DT User/Desktop/ooad/Views/Voziloes/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVm96aWxvZXNcRGVsZXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Korisnik/Documents/GitHub/Grupa3-Tim3/Views/Voziloes/Details.cshtml]
+[C:/Users/DT User/Desktop/ooad/Views/Voziloes/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVm96aWxvZXNcRGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Korisnik/Documents/GitHub/Grupa3-Tim3/Views/Voziloes/Edit.cshtml]
+[C:/Users/DT User/Desktop/ooad/Views/Voziloes/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVm96aWxvZXNcRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Korisnik/Documents/GitHub/Grupa3-Tim3/Views/Voziloes/Index.cshtml]
+[C:/Users/DT User/Desktop/ooad/Views/Voziloes/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVm96aWxvZXNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Korisnik/Documents/GitHub/Grupa3-Tim3/Views/Voziloes/UpravljanjeAutomobilima.cshtml]
+[C:/Users/DT User/Desktop/ooad/Views/Voziloes/UpravljanjeAutomobilima.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVm96aWxvZXNcVXByYXZsamFuamVBdXRvbW9iaWxpbWEuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Korisnik/Documents/GitHub/Grupa3-Tim3/Views/_ViewImports.cshtml]
+[C:/Users/DT User/Desktop/ooad/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Korisnik/Documents/GitHub/Grupa3-Tim3/Views/_ViewStart.cshtml]
+[C:/Users/DT User/Desktop/ooad/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Korisnik/Documents/GitHub/Grupa3-Tim3/Views/Shared/_Layout.cshtml]
+[C:/Users/DT User/Desktop/ooad/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-yt8orw95nd

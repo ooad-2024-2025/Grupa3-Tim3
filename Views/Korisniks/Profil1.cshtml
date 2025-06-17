@@ -1,0 +1,67 @@
+﻿@model VoziBa.Models.Korisnik
+
+@{
+    ViewData["Title"] = "Moj Profil"; // Naslov View-a je i dalje "Moj Profil"
+}
+
+<h1>Moj Profil</h1>
+
+<div>
+    <h4>Korisnik Detalji</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-3">
+            @Html.DisplayNameFor(model => model.username)
+        </dt>
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.username)
+        </dd>
+        <dt class="col-sm-3">
+            @Html.DisplayNameFor(model => model.ime)
+        </dt>
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.ime)
+        </dd>
+        <dt class="col-sm-3">
+            @Html.DisplayNameFor(model => model.prezime)
+        </dt>
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.prezime)
+        </dd>
+        <dt class="col-sm-3">
+            @Html.DisplayNameFor(model => model.datumRodjenja)
+        </dt>
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.datumRodjenja)
+        </dd>
+        <dt class="col-sm-3">
+            @Html.DisplayNameFor(model => model.email)
+        </dt>
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.email)
+        </dd>
+        <dt class="col-sm-3">
+            @Html.DisplayNameFor(model => model.brojTelefona)
+        </dt>
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.brojTelefona)
+        </dd>
+        @* Lozinka se ne prikazuje ovdje iz sigurnosnih razloga *@
+        <dt class="col-sm-3">
+            @Html.DisplayNameFor(model => model.uloga)
+        </dt>
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.uloga)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="MyProfileEdit" class="btn btn-primary">Uredi Profil</a> |
+    <a asp-action="Index" asp-controller="Home">Nazad na Početnu</a>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

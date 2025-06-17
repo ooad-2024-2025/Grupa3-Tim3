@@ -7,6 +7,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using VoziBa.Models;
+using System.ComponentModel.DataAnnotations; // Dodaj ako već nije tu
+using VoziBa.ValidationAttributes; // Dodaj ako već nije tu
 
 namespace VoziBa.Controllers
 {
@@ -59,25 +61,33 @@ namespace VoziBa.Controllers
             return View();
         }
 
-
         // POST: Korisniks/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("korisnikId,username,ime,prezime,datumRodjenja,email,brojTelefona,lozinka,uloga")] Korisnik korisnik)
         {
             if (ModelState.IsValid)
             {
+                if (_context.Korisnik.Any(k => k.username == korisnik.username))
+                {
+                    ModelState.AddModelError("username", "Korisničko ime je već zauzeto.");
+                    return View(korisnik);
+                }
+                if (_context.Korisnik.Any(k => k.email == korisnik.email))
+                {
+                    ModelState.AddModelError("email", "Email je već registriran.");
+                    return View(korisnik);
+                }
+
                 _context.Add(korisnik);
                 await _context.SaveChangesAsync();
+                TempData["SuccessMessage"] = "Uspješno ste se registrirali!";
                 return RedirectToAction("UspjesnaRegistracija");
-
             }
             return View(korisnik);
         }
 
-        // GET: Korisniks/Edit/5
+        // GET: Korisniks/Edit/5 - OVO JE VAŠ POSTOJEĆI EDIT ZA ADMINISTRACIJU. NISMO GA MIJENJALI.
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -93,9 +103,7 @@ namespace VoziBa.Controllers
             return View(korisnik);
         }
 
-        // POST: Korisniks/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        // POST: Korisniks/Edit/5 - OVO JE VAŠ POSTOJEĆI EDIT ZA ADMINISTRACIJU. NISMO GA MIJENJALI.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("korisnikId,username,ime,prezime,datumRodjenja,email,brojTelefona,lozinka,uloga")] Korisnik korisnik)
@@ -127,6 +135,109 @@ namespace VoziBa.Controllers
             }
             return View(korisnik);
         }
+
+        // GET: Korisniks/MyProfileEdit - NOVE AKCIJE ZA UREĐIVANJE VLASTITOG PROFILA
+        [HttpGet]
+        public async Task<IActionResult> MyProfileEdit() // Bez parametra ID, uzima iz sesije
+        {
+            var loggedInUserIdString = HttpContext.Session.GetString("LoggedInUserId");
+            if (string.IsNullOrEmpty(loggedInUserIdString))
+            {
+                TempData["ErrorMessage"] = "Morate se prijaviti za uređivanje profila.";
+                return RedirectToAction("Prijava", "Korisniks");
+            }
+
+            if (!int.TryParse(loggedInUserIdString, out int loggedInUserId))
+            {
+                TempData["ErrorMessage"] = "Došlo je do greške sa vašom sesijom. Pokušajte se ponovo prijaviti.";
+                return RedirectToAction("Odjava", "Korisniks");
+            }
+
+            var korisnik = await _context.Korisnik.FindAsync(loggedInUserId);
+            if (korisnik == null)
+            {
+                TempData["ErrorMessage"] = "Vaš korisnički račun više ne postoji.";
+                return RedirectToAction("Odjava", "Korisniks");
+            }
+
+            // Mapiranje Korisnik modela na EditProfileViewModel
+            var viewModel = new EditProfileViewModel
+            {
+                korisnikId = korisnik.korisnikId,
+                username = korisnik.username,
+                ime = korisnik.ime,
+                prezime = korisnik.prezime,
+                datumRodjenja = korisnik.datumRodjenja,
+                email = korisnik.email,
+                brojTelefona = korisnik.brojTelefona
+            };
+
+            return View(viewModel); // Prosljeđujemo ViewModel
+        }
+
+        // POST: Korisniks/MyProfileEdit - NOVE AKCIJE ZA UREĐIVANJE VLASTITOG PROFILA
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> MyProfileEdit(EditProfileViewModel model) // Prima ViewModel
+        {
+            var loggedInUserIdString = HttpContext.Session.GetString("LoggedInUserId");
+            if (string.IsNullOrEmpty(loggedInUserIdString) || !int.TryParse(loggedInUserIdString, out int loggedInUserId) || loggedInUserId != model.korisnikId)
+            {
+                TempData["ErrorMessage"] = "Niste ovlašteni za ovu radnju ili je došlo do greške.";
+                return RedirectToAction("Odjava", "Korisniks");
+            }
+
+            if (ModelState.IsValid)
+            {
+                var existingKorisnik = await _context.Korisnik.AsNoTracking().FirstOrDefaultAsync(k => k.email == model.email && k.korisnikId != model.korisnikId);
+                if (existingKorisnik != null)
+                {
+                    ModelState.AddModelError("email", "Email je već registriran od strane drugog korisnika.");
+                    return View(model);
+                }
+
+                try
+                {
+                    var userToUpdate = await _context.Korisnik.FindAsync(model.korisnikId);
+                    if (userToUpdate == null)
+                    {
+                        return NotFound();
+                    }
+
+                    // Ažuriraj samo dozvoljena polja iz ViewModel-a na entitetu iz baze
+                    userToUpdate.ime = model.ime;
+                    userToUpdate.prezime = model.prezime;
+                    userToUpdate.datumRodjenja = model.datumRodjenja;
+                    userToUpdate.email = model.email;
+                    userToUpdate.brojTelefona = model.brojTelefona;
+                    // username, lozinka i uloga se NE mijenjaju putem ove forme.
+
+                    _context.Update(userToUpdate);
+                    await _context.SaveChangesAsync();
+                    TempData["SuccessMessage"] = "Profil uspješno ažuriran!";
+                    return RedirectToAction("Profil", "Korisniks"); // Preusmjeri na Profil akciju
+                }
+                catch (DbUpdateConcurrencyException)
+                {
+                    if (!KorisnikExists(model.korisnikId))
+                    {
+                        return NotFound();
+                    }
+                    else
+                    {
+                        throw;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    TempData["ErrorMessage"] = $"Došlo je do greške prilikom spremanja profila: {ex.Message}";
+                    return View(model);
+                }
+            }
+            TempData["ErrorMessage"] = "Molimo ispravite greške u formi.";
+            return View(model);
+        }
+
 
         // GET: Korisniks/Delete/5
         public async Task<IActionResult> Delete(int? id)
@@ -170,23 +281,27 @@ namespace VoziBa.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Login(string username, string password)
         {
-            // 1. Pronađi korisnika po korisničkom imenu i lozinci
-            // **PAŽNJA: Ova provjera uspoređuje lozinku kao običan string. IZBJEGAVAJTE OVO U PRODUKCIJI!**
-            var korisnik = await _context.Korisnik
-                                       .FirstOrDefaultAsync(k => k.username == username && k.lozinka == password);
+            var korisnik = await _context.Korisnik.FirstOrDefaultAsync(k => k.username == username);
 
             if (korisnik != null)
             {
-                // Prijava uspješna
-                HttpContext.Session.SetString("LoggedInUserId", korisnik.korisnikId.ToString());
-                HttpContext.Session.SetString("LoggedInUsername", korisnik.username); // Možda želiš i korisničko ime
-                HttpContext.Session.SetString("UserRole", korisnik.uloga.ToString());
-
-                return RedirectToAction("Index", "Home"); // Preusmjeri na početnu stranicu
+                // PAŽNJA: OVDJE TREBATE SIGURNO HASIRATI LOZINKE!
+                if (korisnik.lozinka == password)
+                {
+                    HttpContext.Session.SetString("LoggedInUserId", korisnik.korisnikId.ToString());
+                    HttpContext.Session.SetString("LoggedInUsername", korisnik.username);
+                    HttpContext.Session.SetString("UserRole", korisnik.uloga.ToString());
+                    TempData["SuccessMessage"] = $"Dobrodošli, {korisnik.username}!";
+                    return RedirectToAction("Index", "Home");
+                }
+                else
+                {
+                    TempData["ErrorMessage"] = "Neispravno korisničko ime ili lozinka.";
+                    return RedirectToAction("Prijava");
+                }
             }
             else
             {
-                // Korisnik nije pronađen ili lozinka nije ispravna
                 TempData["ErrorMessage"] = "Neispravno korisničko ime ili lozinka.";
                 return RedirectToAction("Prijava");
             }
@@ -197,8 +312,9 @@ namespace VoziBa.Controllers
         {
             HttpContext.Session.Remove("LoggedInUserId");
             HttpContext.Session.Remove("LoggedInUsername");
-            HttpContext.Session.Clear(); // Obriši sve iz sesije ako želiš potpuni reset
+            HttpContext.Session.Clear();
 
+            TempData["SuccessMessage"] = "Uspješno ste se odjavili.";
             return RedirectToAction("Index", "Home");
         }
 
@@ -213,34 +329,28 @@ namespace VoziBa.Controllers
             return View();
         }
 
-
         [HttpGet]
         public async Task<IActionResult> Profil()
         {
             var loggedInUserIdString = HttpContext.Session.GetString("LoggedInUserId");
             if (string.IsNullOrEmpty(loggedInUserIdString))
             {
-                // Korisnik nije prijavljen, preusmjeri na prijavu
                 TempData["ErrorMessage"] = "Morate se prijaviti za pristup profilu.";
                 return RedirectToAction("Prijava");
             }
 
-            // Dohvati podatke korisnika iz baze koristeći ID iz sesije
             if (int.TryParse(loggedInUserIdString, out int loggedInUserId))
             {
                 var korisnik = await _context.Korisnik.FindAsync(loggedInUserId);
                 if (korisnik == null)
                 {
-                    // Korisnik nije pronađen u bazi (možda je obrisan), odjavi ga
                     TempData["ErrorMessage"] = "Vaš korisnički račun više ne postoji.";
                     return RedirectToAction("Odjava");
                 }
-                // Proslijedi cijeli Korisnik objekt pogledu
-                return View(korisnik);
+                return View("Profil1", korisnik); // <--- IZMIJENJENA LINIJA: Sada traži "Profil1.cshtml"
             }
             else
             {
-                // ID u sesiji nije validan broj, odjavi korisnika
                 TempData["ErrorMessage"] = "Došlo je do greške sa vašom sesijom. Pokušajte se ponovo prijaviti.";
                 return RedirectToAction("Odjava");
             }
