@@ -298,3 +298,4 @@ C:\Users\DT User\source\repos\VoziBa\bin\Debug\net8.0\System.Security.Cryptograp
 C:\Users\DT User\source\repos\VoziBa\bin\Debug\net8.0\runtimes\win\lib\net8.0\System.Security.Cryptography.Pkcs.dll
 C:\Users\DT User\source\repos\VoziBa\bin\Debug\net8.0\wwwroot\images\toyotice.png
 C:\Users\DT User\source\repos\VoziBa\bin\Debug\net8.0\wwwroot\images\lineupsunc.jpg
+C:\Users\DT User\source\repos\VoziBa\bin\Debug\net8.0\wwwroot\images\kalkulator-ba.jpg

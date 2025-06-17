@@ -187,15 +187,20 @@
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
-            <div class="form-group">
-                <input asp-for="ime" class="form-control" placeholder="Ime i Prezime" />
-                <span asp-validation-for="ime" class="text-danger"></span>
-                <input asp-for="prezime" type="hidden" value="Default" />
+            <div class="form-row">
+                <div class="form-group">
+                    <input asp-for="ime" class="form-control" placeholder="Ime" />
+                    <span asp-validation-for="ime" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <input asp-for="prezime" class="form-control" placeholder="Prezime" />
+                    <span asp-validation-for="prezime" class="text-danger"></span>
+                </div>
             </div>
 
             <div class="form-row">
                 <div class="form-group">
-                    <input asp-for="brojTelefona" class="form-control" placeholder="Broj telefona" />
+                    <input asp-for="brojTelefona" class="form-control" placeholder="Broj telefona (npr. 06x xxx xxx)" />
                     <span asp-validation-for="brojTelefona" class="text-danger"></span>
                 </div>
                 <div class="form-group">
@@ -210,7 +215,7 @@
             </div>
 
             <div class="form-group">
-                <input asp-for="lozinka" type="password" class="form-control" placeholder="Password" />
+                <input asp-for="lozinka" type="password" class="form-control" placeholder="Lozinka (min. 8 karaktera, barem jedan broj)" />
                 <span asp-validation-for="lozinka" class="text-danger"></span>
             </div>
 
@@ -242,7 +247,6 @@
                 </button>
             </div>
         </form>
-        <a href="#" class="help-link"><i class="fas fa-question-circle"></i> Need a help?</a>
     </div>
 </div>
 

@@ -3,11 +3,11 @@ using Microsoft.EntityFrameworkCore;
 
 namespace VoziBa.Controllers
 {
-    public class KalkulatorController : Controller
+    public class KalkulatorsController : Controller
     {
         private readonly ApplicationDbContext _context; // Za pristup bazi podataka
 
-        public KalkulatorController(ApplicationDbContext context)
+        public KalkulatorsController(ApplicationDbContext context)
         {
             _context = context;
         }
@@ -19,9 +19,9 @@ namespace VoziBa.Controllers
             return View(vozila);
         }
 
-        
-        [HttpPost] 
-        [ValidateAntiForgeryToken] 
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
         public async Task<IActionResult> IzracunajTrosak(int voziloId, int brojDanaRezervacije)
         {
             var vozilo = await _context.Vozilo

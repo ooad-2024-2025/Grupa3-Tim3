@@ -1,6 +1,7 @@
 wwwroot\css\site.css
 wwwroot\favicon.ico
 wwwroot\images\autalineup.jpg
+wwwroot\images\kalkulator-ba.jpg
 wwwroot\images\kljucevi.png
 wwwroot\images\lineupsunc.jpg
 wwwroot\images\sretanciko.png
