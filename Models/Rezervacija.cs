@@ -1,4 +1,7 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿
+
+
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace VoziBa.Models
@@ -16,18 +19,14 @@ namespace VoziBa.Models
 
         [ForeignKey("Vozilo")]
         public int voziloID { get; set; }
-        public Vozilo Vozilo { get; set; }
 
         [Required(ErrorMessage = "Datum pocetka rezervacije je obavezan. ")]
-        [DataType(DataType.Date)]
-        [DisplayFormat(DataFormatString ="{0:yyyy-MM-dd}",ApplyFormatInEditMode =true)]
         public DateTime datumPocetka { get; set; }
 
         [Required(ErrorMessage = "Datum zavrsetka rezervacije je obavezan.")]
-        [DataType(DataType.Date)]
         public DateTime datumZavrsetka { get; set; }
-        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
 
         public DateTime datumKreiranja { get; set; }
+        public Boolean potvrda { get; set; }
     }
 }

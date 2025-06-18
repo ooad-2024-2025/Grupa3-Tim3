@@ -1,4 +1,7 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿
+
+using System.ComponentModel.DataAnnotations;
+using System.Drawing;
 
 namespace VoziBa.Models
 {
@@ -7,6 +10,7 @@ namespace VoziBa.Models
         [Key]
         public int recenzijaId { get; set; }
         public Ocjena ocjena { get; set; }
-        public string recenzija {  get; set; }
+        public string recenzija { get; set; }
+        public string komentar { get; set; }
     }
 }
