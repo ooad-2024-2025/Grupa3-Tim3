@@ -5,32 +5,24 @@
 }
 
 <div class="details-container">
-
     <div class="vehicle-details-image">
         <img src="~/images/@Model.slikaPath" alt="@Model.brend @Model.model" onerror="this.onerror=null;this.src='/images/placeholder.png';" />
     </div>
-
     <div class="vehicle-details-info">
         <h1 class="details-title">@Model.brend @Model.model</h1>
-
         <p class="details-description">
             @Model.opis
         </p>
-
         <dl class="details-list">
             <dt>Godište:</dt>
             <dd>@Model.godinaProizvodnje</dd>
-
-            <dt>Boja:</dt>
-            <dd>@Model.boja</dd>
-
+            <dt>Grad:</dt>
+            <dd>@Model.grad</dd>
             <dt>Tip goriva:</dt>
             <dd>@Model.tipGoriva</dd>
-
             <dt>Transmisija:</dt>
             <dd>@Model.transmisija</dd>
         </dl>
-
         <div class="price-and-action">
             <p class="details-price">@Model.cijenaNajma.ToString("0.00") KM/dan</p>
             <a asp-controller="Rezervacijas" asp-action="Create" asp-route-voziloId="@Model.voziloId" class="btn btn-reserve">
@@ -39,3 +31,121 @@
         </div>
     </div>
 </div>
+
+<hr class="section-divider" />
+
+<div class="location-container">
+    <h2 class="section-title">Lokacija Vozila</h2>
+    <div id="map"></div>
+</div>
+
+<hr class="section-divider" />
+
+<div class="reviews-container">
+    <h2 class="section-title">Recenzije Korisnika</h2>
+
+    <div class="existing-reviews">
+        <p>Trenutno nema recenzija za ovo vozilo.</p>
+    </div>
+
+    <div class="add-review-form">
+        <h3>Ostavite Vašu recenziju</h3>
+        <form asp-controller="Recenzijas" asp-action="Create" method="post">
+            @* Skriveno polje koje šalje ID vozila uz recenziju *@
+            <input type="hidden" name="VoziloId" value="@Model.voziloId" />
+
+            <div class="form-group">
+                <label for="ocjena">Ocjena:</label>
+                <select name="ocjena" id="ocjena" class="form-control" required>
+                    <option value="">Izaberite ocjenu</option>
+                    <option value="5">★★★★★ (5)</option>
+                    <option value="4">★★★★☆ (4)</option>
+                    <option value="3">★★★☆☆ (3)</option>
+                    <option value="2">★★☆☆☆ (2)</option>
+                    <option value="1">★☆☆☆☆ (1)</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="naslov">Naslov recenzije:</label>
+                <input type="text" name="recenzija" id="naslov" class="form-control" required />
+            </div>
+            <div class="form-group">
+                <label for="komentar">Vaš komentar:</label>
+                <textarea name="komentar" id="komentar" class="form-control" rows="4" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-submit-review">Pošalji recenziju</button>
+        </form>
+    </div>
+</div>
+
+<style>
+    .section-divider {
+        margin: 40px 0;
+    }
+
+    .section-title {
+        text-align: center;
+        margin-bottom: 25px;
+        font-size: 28px;
+        color: #333;
+    }
+    /* Stil za mapu */
+    #map {
+        height: 400px;
+        width: 100%;
+        border-radius: 8px;
+        border: 1px solid #ddd;
+    }
+    /* Stilovi za formu recenzije */
+    .add-review-form {
+        max-width: 700px;
+        margin: 20px auto;
+        padding: 30px;
+        background-color: #f9f9f9;
+        border-radius: 8px;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    }
+
+        .add-review-form h3 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+    .form-group {
+        margin-bottom: 15px;
+    }
+
+    .btn-submit-review {
+        background-color: #28a745; /* Zelena boja */
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        width: 100%;
+        margin-top: 10px;
+        font-size: 16px;
+    }
+</style>
+
+@section Scripts {
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+
+    <script>
+        // Inicijalizacija Leaflet mape
+        // Koristimo koordinate iz @Model objekta
+        var lat = @Model.Latitude.ToString().Replace(",", ".");
+        var lon = @Model.Longitude.ToString().Replace(",", ".");
+
+        var map = L.map('map').setView([lat, lon], 15); // 15 je nivo zooma
+
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+
+        L.marker([lat, lon]).addTo(map)
+            .bindPopup('@Model.brend @Model.model')
+            .openPopup();
+    </script>
+}

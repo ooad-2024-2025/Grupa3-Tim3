@@ -9,11 +9,17 @@ namespace VoziBa.Models
 {
     public class Vozilo
     {
+        public Vozilo()
+        {
+            this.Rezervacije = new HashSet<Rezervacija>();
+        }
         [Key]
         public int voziloId { get; set; }
 
         [ForeignKey("Korisnik")]
         public int korisnikId { get; set; }
+        public virtual Korisnik Korisnik { get; set; }
+        public virtual ICollection<Rezervacija> Rezervacije { get; set; }
         public int godinaProizvodnje { get; set; }
         public Brend brend { get; set; }
         public string model { get; set; }

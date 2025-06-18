@@ -13,12 +13,15 @@ namespace VoziBa.Models
 
         [ForeignKey("Korisnik")]
         public int osobaId { get; set; }
+        public virtual Korisnik Korisnik { get; set; }
+
 
         [ForeignKey("Recenzija")]
         public int recenzijaId { get; set; }
 
         [ForeignKey("Vozilo")]
         public int voziloID { get; set; }
+        public virtual Vozilo Vozilo { get; set; }
 
         [Required(ErrorMessage = "Datum pocetka rezervacije je obavezan. ")]
         public DateTime datumPocetka { get; set; }

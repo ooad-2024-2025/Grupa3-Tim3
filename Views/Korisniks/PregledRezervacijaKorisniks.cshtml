@@ -1,0 +1,170 @@
+﻿@model IEnumerable<VoziBa.Models.KorisnikRezervacijaViewModel>
+
+@{
+    ViewData["Title"] = "Pregled Vaših Rezervacija";
+}
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+
+<style>
+    body {
+        padding-top: 80px; /* Prilagodite ako je potrebno zbog fiksiranog headera */
+        background-image: url('/images/background_cars.jpg'); /* Provjerite da li je putanja ispravna */
+        background-attachment: fixed;
+        background-size: cover;
+        background-position: center;
+    }
+
+    .reservations-container {
+        padding: 50px 20px;
+        min-height: calc(100vh - 80px);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        color: #333;
+    }
+
+    .reservations-header {
+        font-size: 2.5em;
+        color: #ec007f;
+        margin-bottom: 20px;
+        font-weight: bold;
+        text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+    }
+
+    .reservations-subheader {
+        font-size: 1.2em;
+        color: #fff;
+        background-color: rgba(0,0,0,0.4);
+        padding: 5px 15px;
+        border-radius: 5px;
+        margin-bottom: 40px;
+    }
+
+    .reservation-list {
+        width: 100%;
+        max-width: 700px;
+        margin-top: 20px;
+    }
+
+    .reservation-item {
+        background-color: rgba(255, 255, 255, 0.95);
+        border-radius: 8px;
+        padding: 15px 20px;
+        margin-bottom: 15px;
+        display: flex;
+        align-items: center;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        transition: transform 0.2s ease-in-out;
+        justify-content: space-between;
+    }
+
+        .reservation-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .reservation-item .status-icon {
+            font-size: 2em; /* Povećana ikonica */
+            margin-right: 20px;
+        }
+
+    .status-icon.text-warning {
+        color: orange !important;
+    }
+
+    .status-icon.text-success {
+        color: #28a745 !important;
+    }
+
+    .status-icon.text-danger {
+        color: #dc3545 !important;
+    }
+
+    .reservation-item .text-content {
+        flex-grow: 1;
+        text-align: left;
+    }
+
+        .reservation-item .text-content span.car-model {
+            display: block;
+            font-size: 1.2em;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .reservation-item .text-content .dates {
+            font-size: 0.9em;
+            color: #777;
+            font-weight: normal;
+        }
+
+        .reservation-item .text-content .contact-info {
+            font-size: 0.9em;
+            color: #555;
+            margin-top: 5px;
+        }
+
+    .no-reservations {
+        font-size: 1.3em;
+        color: #fff;
+        margin-top: 50px;
+        background-color: rgba(0,0,0,0.5);
+        padding: 20px;
+        border-radius: 8px;
+    }
+
+    .btn-info {
+        background-color: #17a2b8;
+        border-color: #17a2b8;
+        color: white;
+    }
+
+        .btn-info:hover {
+            background-color: #138496;
+            border-color: #117a8b;
+        }
+</style>
+
+<div class="reservations-container">
+    <h1 class="reservations-header">PREGLED VAŠIH REZERVACIJA</h1>
+    <p class="reservations-subheader">Ovdje možete pratiti status svih vaših rezervacija.</p>
+
+    @if (TempData["SuccessMessage"] != null)
+    {
+        <div class="alert alert-success" role="alert">@TempData["SuccessMessage"]</div>
+    }
+    @if (TempData["ErrorMessage"] != null)
+    {
+        <div class="alert alert-danger" role="alert">@TempData["ErrorMessage"]</div>
+    }
+
+    @if (!Model.Any())
+    {
+        <p class="no-reservations">Trenutno nemate nijednu napravljenu rezervaciju.</p>
+    }
+    else
+    {
+        <div class="reservation-list">
+            @foreach (var item in Model)
+            {
+                <div class="reservation-item">
+
+                    <i class="status-icon @item.StatusIkonaKlasa"></i>
+
+                    <div class="text-content">
+                        <span class="car-model">@item.VoziloModel</span>
+                        <span class="dates">(@item.DatumPocetka.ToString("dd.MM.yy") - @item.DatumZavrsetka.ToString("dd.MM.yy"))</span>
+                        <div class="contact-info">
+                            Vlasnik: @item.VlasnikImePrezime, Tel: @item.VlasnikBrojTelefona
+                        </div>
+                        <div class="contact-info">
+                            <strong>Status: @item.StatusTekst</strong>
+                        </div>
+                    </div>
+                    <a asp-controller="Rezervacijas" asp-action="Details" asp-route-id="@item.RezervacijaID" class="btn btn-sm btn-info ml-auto">Detalji</a>
+                </div>
+            }
+        </div>
+    }
+</div>

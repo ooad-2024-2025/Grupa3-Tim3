@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using System.Globalization;
 using Microsoft.AspNetCore.Localization;
+using Microsoft.AspNetCore.Authentication.Cookies;
 
 
 var builder = WebApplication.CreateBuilder(args);
@@ -26,10 +27,19 @@ builder.Services.AddSession(options =>
     options.Cookie.HttpOnly = true;
     options.Cookie.IsEssential = true;
 });
+
+builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+    .AddCookie(options =>
+    {
+        options.LoginPath = "/Korisniks/Prijava"; // Putanja do vaše login stranice
+        options.AccessDeniedPath = "/Home/AccessDenied"; // Opcionalno: stranica za zabranjen pristup
+        options.ExpireTimeSpan = TimeSpan.FromMinutes(30);
+    });
+
 var app = builder.Build();
 
 app.UseSession(); // 🔴 VAŽNO!
-app.UseAuthorization();
+//app.UseAuthorization();
 
 
 
@@ -46,6 +56,8 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
+app.UseAuthentication();
+app.UseAuthorization();
 app.UseRequestLocalization(localizationOptions);
 
 

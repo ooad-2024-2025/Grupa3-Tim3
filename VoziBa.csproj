@@ -7,7 +7,17 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Models\NewFolder\**" />
+    <Content Remove="Models\NewFolder\**" />
+    <EmbeddedResource Remove="Models\NewFolder\**" />
+    <None Remove="Models\NewFolder\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Compile Remove="Models\Brend - Copy.cs" />
+    <Compile Remove="Views\Korisniks\PregledRezervacijaKorisniks.cshtml.cs" />
+    <Compile Remove="Views\Oglasi\Detalji.cshtml.cs" />
+    <Compile Remove="Views\Oglasi\Objavi.cshtml.cs" />
   </ItemGroup>
 
   <ItemGroup>
@@ -54,6 +64,7 @@
 
   <ItemGroup>
     <Folder Include="Migrations\" />
+    <Folder Include="Models\NewFolder1\" />
   </ItemGroup>
 
 </Project>

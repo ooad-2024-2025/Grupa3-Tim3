@@ -1,42 +1,41 @@
 ﻿using System.ComponentModel.DataAnnotations;
-using VoziBa.ValidationAttributes; // Pretpostavljamo da je ova klasa ovdje, ako nije, izbrišite ovu liniju
 
 namespace VoziBa.Models
 {
     public class EditProfileViewModel
     {
-        // ID korisnika je potreban za ažuriranje, ali ga skrivamo u formi
-        public int korisnikId { get; set; }
+        public int KorisnikId { get; set; }
 
-        // Korisničko ime je obično nepromjenjivo nakon registracije ili se mijenja putem posebnog procesa.
-        // Ovdje ga prikazujemo, ali ga ne dozvoljavamo za uređivanje u formi.
-        [Display(Name = "Korisničko ime")]
-        public string username { get; set; }
-
-        [Required(ErrorMessage = "Ime je obavezno polje.")]
+        // --- IZMIJENJENO ---
+        [Required(ErrorMessage = "Ime je obavezno.")]
         [Display(Name = "Ime")]
-        public string ime { get; set; }
+        public string Ime { get; set; }
 
-        [Required(ErrorMessage = "Prezime je obavezno polje.")]
+        [Required(ErrorMessage = "Prezime je obavezno.")]
         [Display(Name = "Prezime")]
-        public string prezime { get; set; }
-
-        [Required(ErrorMessage = "Datum rođenja je obavezno polje.")]
-        [Display(Name = "Datum rođenja")]
-        [DataType(DataType.Date)]
-        [MinimumAge(18, ErrorMessage = "Morate imati najmanje 18 godina.")] // Pretpostavljamo da imate ovu validaciju
-        public string datumRodjenja { get; set; }
-
-        [Required(ErrorMessage = "Email je obavezno polje.")]
-        [EmailAddress(ErrorMessage = "Email adresa nije u ispravnom formatu.")]
-        [Display(Name = "Email adresa")]
-        public string email { get; set; }
+        public string Prezime { get; set; }
+        // --- KRAJ IZMJENE ---
 
         [Required(ErrorMessage = "Broj telefona je obavezno polje.")]
-        [RegularExpression(@"^(06[0-689])(?:[ -]?)(\d{3})(?:[ -]?)(\d{3,4})$", ErrorMessage = "Broj telefona nije u ispravnom formatu (npr. 06x xxx xxx ili 06x xxx xxx x).")]
+        [RegularExpression(@"^(06[0-689])(?:[ -]?)(\d{3})(?:[ -]?)(\d{3,4})$", ErrorMessage = "Broj telefona nije u ispravnom formatu.")]
         [Display(Name = "Broj telefona")]
-        public string brojTelefona { get; set; }
+        public string BrojTelefona { get; set; }
 
-        // Lozinku i ulogu NE dodajemo u ovaj ViewModel jer ih korisnik ne smije sam mijenjati.
+        [Required(ErrorMessage = "Email je obavezan.")]
+        [EmailAddress(ErrorMessage = "Email adresa nije u ispravnom formatu.")]
+        [Display(Name = "E-mail")]
+        public string Email { get; set; }
+
+        public string Username { get; set; }
+
+        [Display(Name = "Stara lozinka")]
+        [DataType(DataType.Password)]
+        public string StaraLozinka { get; set; }
+
+        [Display(Name = "Nova lozinka")]
+        [DataType(DataType.Password)]
+        [MinLength(8, ErrorMessage = "Nova lozinka mora imati najmanje 8 karaktera.")]
+        [RegularExpression(@"^(?=.*\d).{8,}$", ErrorMessage = "Nova lozinka mora imati najmanje 8 karaktera i barem jedan broj.")]
+        public string NovaLozinka { get; set; }
     }
 }

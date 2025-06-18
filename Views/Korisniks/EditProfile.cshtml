@@ -1,0 +1,219 @@
+﻿@model VoziBa.Models.EditProfileViewModel
+@{
+    ViewData["Title"] = "Uredi Profil";
+}
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+
+<style>
+    /* ... Ovdje ide kompletan CSS kod koji je isti kao u prethodnom odgovoru ... */
+    .profile-edit-page {
+        background-image: url('/images/lineupsunc.jpg');
+        background-size: cover;
+        background-position: center;
+        padding: 50px 0;
+        font-family: 'Arial', sans-serif;
+    }
+
+    .profile-container {
+        display: flex;
+        align-items: center;
+        max-width: 1200px;
+        margin: auto;
+        background-color: rgba(255, 255, 255, 0.95);
+        border-radius: 10px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        overflow: hidden;
+    }
+
+    .features-column {
+        padding: 40px;
+        color: #333;
+    }
+
+    .feature-list {
+        list-style: none;
+        padding: 0;
+    }
+
+        .feature-list li {
+            display: flex;
+            align-items: center;
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+
+        .feature-list .icon {
+            color: #E83151;
+            font-size: 20px;
+            margin-right: 15px;
+        }
+
+    .form-column {
+        padding: 40px;
+        background-color: #fff;
+    }
+
+    .form-title {
+        color: #E83151;
+        font-weight: bold;
+        font-size: 32px;
+        text-align: center;
+        margin-bottom: 30px;
+    }
+
+    .form-group {
+        margin-bottom: 20px;
+        position: relative;
+    }
+
+        .form-group label {
+            font-weight: bold;
+            font-size: 12px;
+            color: #555;
+            text-transform: uppercase;
+            margin-bottom: 5px;
+            display: block;
+        }
+
+    .form-control {
+        width: 100%;
+        padding: 12px 15px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        font-size: 16px;
+        transition: border-color 0.3s;
+    }
+
+        .form-control:focus {
+            border-color: #E83151;
+            outline: none;
+            box-shadow: 0 0 5px rgba(232, 49, 81, 0.2);
+        }
+
+    .username-display {
+        background-color: #f0f0f0;
+        color: #777;
+        padding: 12px 15px;
+        border-radius: 5px;
+        font-style: italic;
+    }
+
+    .btn-submit {
+        background-color: #E83151;
+        color: white;
+        border: none;
+        padding: 15px 30px;
+        width: 100%;
+        font-size: 18px;
+        font-weight: bold;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+        text-transform: uppercase;
+    }
+
+        .btn-submit:hover {
+            background-color: #c2213e;
+        }
+
+    .help-link {
+        display: block;
+        text-align: center;
+        margin-top: 20px;
+        color: #E83151;
+        text-decoration: none;
+        font-weight: bold;
+    }
+
+        .help-link .icon {
+            margin-right: 5px;
+        }
+</style>
+
+
+<div class="profile-edit-page">
+    <div class="container profile-container">
+        <div class="row w-100 m-0">
+            <div class="col-lg-5 features-column d-none d-lg-block">
+                <ul class="feature-list">
+                    <li><span class="icon fas fa-check-circle"></span> Brza i jednostavna rezervacija.</li>
+                    <li><span class="icon fas fa-check-circle"></span> Sigurna i pouzdana platforma.</li>
+                    <li><span class="icon fas fa-check-circle"></span> Jasna dostupnost i cijene vozila.</li>
+                    <li><span class="icon fas fa-check-circle"></span> Voziš ili iznajmljuješ kad želiš.</li>
+                    <li><span class="icon fas fa-check-circle"></span> Ušteda vremena i bez papirologije.</li>
+                    <li><span class="icon fas fa-check-circle"></span> Vozila za svaki budžet i potrebu.</li>
+                </ul>
+            </div>
+
+            <div class="col-lg-7 form-column">
+                <h1 class="form-title">UREDI PROFIL</h1>
+                <form asp-action="EditProfile" method="post">
+                    <div asp-validation-summary="All" class="text-danger"></div>
+                    <input type="hidden" asp-for="KorisnikId" />
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label asp-for="Ime"></label>
+                                <input asp-for="Ime" class="form-control" placeholder="Unesite ime" />
+                                <span asp-validation-for="Ime" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label asp-for="Prezime"></label>
+                                <input asp-for="Prezime" class="form-control" placeholder="Unesite prezime" />
+                                <span asp-validation-for="Prezime" class="text-danger"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label asp-for="BrojTelefona"></label>
+                                <input asp-for="BrojTelefona" class="form-control" placeholder="Broj telefona" />
+                                <span asp-validation-for="BrojTelefona" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                             <div class="form-group">
+                                <label>USERNAME</label>
+                                <div class="username-display">@Model.Username <small>// ne može se mijenjati</small></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Email"></label>
+                        <input asp-for="Email" class="form-control" placeholder="e-mail" />
+                        <span asp-validation-for="Email" class="text-danger"></span>
+                    </div>
+                    <div class="row">
+                         <div class="col-md-6">
+                            <div class="form-group">
+                                <label asp-for="StaraLozinka"></label>
+                                <input asp-for="StaraLozinka" class="form-control" placeholder="Ostavite prazno ako ne mijenjate" />
+                                <span asp-validation-for="StaraLozinka" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label asp-for="NovaLozinka"></label>
+                                <input asp-for="NovaLozinka" class="form-control" placeholder="Ostavite prazno ako ne mijenjate" />
+                                <span asp-validation-for="NovaLozinka" class="text-danger"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group mt-4">
+                        <button type="submit" class="btn-submit">SPREMI PROMJENE <i class="fas fa-arrow-right"></i></button>
+                    </div>
+                    <a href="#" class="help-link"><span class="icon fas fa-question-circle"></span> Need a help?</a>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

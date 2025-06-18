@@ -1,30 +1,14 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\Korisnik\\Documents\\GitHub\\Grupa3-Tim3\\",
+  "WorkspaceRootPath": "C:\\Users\\Korisnik\\Desktop\\ooad\\Grupa3-Tim3\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{C2A77B10-F454-4296-B92E-D85741EB8977}|VoziBa.csproj|c:\\users\\korisnik\\documents\\github\\grupa3-tim3\\views\\rezervacijas\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{C2A77B10-F454-4296-B92E-D85741EB8977}|VoziBa.csproj|solutionrelative:views\\rezervacijas\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{C2A77B10-F454-4296-B92E-D85741EB8977}|VoziBa.csproj|c:\\users\\korisnik\\desktop\\ooad\\grupa3-tim3\\controllers\\korisnikscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C2A77B10-F454-4296-B92E-D85741EB8977}|VoziBa.csproj|solutionrelative:controllers\\korisnikscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C2A77B10-F454-4296-B92E-D85741EB8977}|VoziBa.csproj|c:\\users\\korisnik\\documents\\github\\grupa3-tim3\\views\\voziloes\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{C2A77B10-F454-4296-B92E-D85741EB8977}|VoziBa.csproj|solutionrelative:views\\voziloes\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C2A77B10-F454-4296-B92E-D85741EB8977}|VoziBa.csproj|c:\\users\\korisnik\\documents\\github\\grupa3-tim3\\wwwroot\\css\\site.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
-      "RelativeMoniker": "D:0:0:{C2A77B10-F454-4296-B92E-D85741EB8977}|VoziBa.csproj|solutionrelative:wwwroot\\css\\site.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C2A77B10-F454-4296-B92E-D85741EB8977}|VoziBa.csproj|c:\\users\\korisnik\\documents\\github\\grupa3-tim3\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{C2A77B10-F454-4296-B92E-D85741EB8977}|VoziBa.csproj|c:\\users\\korisnik\\desktop\\ooad\\grupa3-tim3\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{C2A77B10-F454-4296-B92E-D85741EB8977}|VoziBa.csproj|solutionrelative:views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C2A77B10-F454-4296-B92E-D85741EB8977}|VoziBa.csproj|c:\\users\\korisnik\\documents\\github\\grupa3-tim3\\views\\voziloes\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{C2A77B10-F454-4296-B92E-D85741EB8977}|VoziBa.csproj|solutionrelative:views\\voziloes\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C2A77B10-F454-4296-B92E-D85741EB8977}|VoziBa.csproj|c:\\users\\korisnik\\documents\\github\\grupa3-tim3\\controllers\\voziloescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C2A77B10-F454-4296-B92E-D85741EB8977}|VoziBa.csproj|solutionrelative:controllers\\voziloescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -39,79 +23,27 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "Create.cshtml",
-              "DocumentMoniker": "C:\\Users\\Korisnik\\Documents\\GitHub\\Grupa3-Tim3\\Views\\Rezervacijas\\Create.cshtml",
-              "RelativeDocumentMoniker": "Views\\Rezervacijas\\Create.cshtml",
-              "ToolTip": "C:\\Users\\Korisnik\\Documents\\GitHub\\Grupa3-Tim3\\Views\\Rezervacijas\\Create.cshtml",
-              "RelativeToolTip": "Views\\Rezervacijas\\Create.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-06-17T18:39:13.317Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "site.css",
-              "DocumentMoniker": "C:\\Users\\Korisnik\\Documents\\GitHub\\Grupa3-Tim3\\wwwroot\\css\\site.css",
-              "RelativeDocumentMoniker": "wwwroot\\css\\site.css",
-              "ToolTip": "C:\\Users\\Korisnik\\Documents\\GitHub\\Grupa3-Tim3\\wwwroot\\css\\site.css",
-              "RelativeToolTip": "wwwroot\\css\\site.css",
-              "ViewState": "AgIAAMwBAAAAAAAAAAAAAMwBAAAFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2025-06-17T18:34:43.177Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "_Layout.cshtml",
-              "DocumentMoniker": "C:\\Users\\Korisnik\\Documents\\GitHub\\Grupa3-Tim3\\Views\\Shared\\_Layout.cshtml",
-              "RelativeDocumentMoniker": "Views\\Shared\\_Layout.cshtml",
-              "ToolTip": "C:\\Users\\Korisnik\\Documents\\GitHub\\Grupa3-Tim3\\Views\\Shared\\_Layout.cshtml",
-              "RelativeToolTip": "Views\\Shared\\_Layout.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-06-17T18:34:26.109Z",
+              "Title": "KorisniksController.cs",
+              "DocumentMoniker": "C:\\Users\\Korisnik\\Desktop\\ooad\\Grupa3-Tim3\\Controllers\\KorisniksController.cs",
+              "RelativeDocumentMoniker": "Controllers\\KorisniksController.cs",
+              "ToolTip": "C:\\Users\\Korisnik\\Desktop\\ooad\\Grupa3-Tim3\\Controllers\\KorisniksController.cs*",
+              "RelativeToolTip": "Controllers\\KorisniksController.cs*",
+              "ViewState": "AgIAABwAAAAAAAAAAAAQwB8AAABEAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-18T18:04:28.913Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "Details.cshtml",
-              "DocumentMoniker": "C:\\Users\\Korisnik\\Documents\\GitHub\\Grupa3-Tim3\\Views\\Voziloes\\Details.cshtml",
-              "RelativeDocumentMoniker": "Views\\Voziloes\\Details.cshtml",
-              "ToolTip": "C:\\Users\\Korisnik\\Documents\\GitHub\\Grupa3-Tim3\\Views\\Voziloes\\Details.cshtml",
-              "RelativeToolTip": "Views\\Voziloes\\Details.cshtml",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAACUAAAAQAAAAAAAAAA==",
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "C:\\Users\\Korisnik\\Desktop\\ooad\\Grupa3-Tim3\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "C:\\Users\\Korisnik\\Desktop\\ooad\\Grupa3-Tim3\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "Views\\Shared\\_Layout.cshtml",
+              "ViewState": "AgIAAKIAAAAAAAAAAAAAALcAAABlAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-06-17T18:33:24.684Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\Users\\Korisnik\\Documents\\GitHub\\Grupa3-Tim3\\Views\\Voziloes\\Index.cshtml",
-              "RelativeDocumentMoniker": "Views\\Voziloes\\Index.cshtml",
-              "ToolTip": "C:\\Users\\Korisnik\\Documents\\GitHub\\Grupa3-Tim3\\Views\\Voziloes\\Index.cshtml",
-              "RelativeToolTip": "Views\\Voziloes\\Index.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-06-17T18:33:16.986Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "VoziloesController.cs",
-              "DocumentMoniker": "C:\\Users\\Korisnik\\Documents\\GitHub\\Grupa3-Tim3\\Controllers\\VoziloesController.cs",
-              "RelativeDocumentMoniker": "Controllers\\VoziloesController.cs",
-              "ToolTip": "C:\\Users\\Korisnik\\Documents\\GitHub\\Grupa3-Tim3\\Controllers\\VoziloesController.cs",
-              "RelativeToolTip": "Controllers\\VoziloesController.cs",
-              "ViewState": "AgIAAFsAAAAAAAAAAAAwwJ4AAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-17T18:03:26.34Z",
+              "WhenOpened": "2025-06-18T17:57:14.524Z",
               "EditorCaption": ""
             }
           ]
