@@ -1,66 +1,136 @@
 ﻿@model VoziBa.Models.Korisnik
 
 @{
-    ViewData["Title"] = "Details";
+    ViewData["Title"] = "Detalji korisnika";
 }
 
-<h1>Details</h1>
+<style>
+    body {
+        background-color: #f8f9fa; 
+    }
 
-<div>
-    <h4>Korisnik</h4>
+    .details-title {
+        color: #343a40; 
+        font-weight: 300; 
+        text-align: center;
+        margin-bottom: 2rem;
+    }
+
+    
+    .details-card {
+        background-color: #ffffff;
+        border-radius: 8px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        padding: 2rem;
+        border-top: 5px solid #E91E63; 
+    }
+
+        .details-card h4 {
+            color: #E91E63; 
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid #dee2e6;
+        }
+
+    .details-list dt {
+        font-weight: 600; 
+        color: #495057;
+    }
+
+    .details-list dd {
+        color: #212529;
+        margin-bottom: 1rem; 
+    }
+
+    .actions-section {
+        margin-top: 1.5rem;
+        text-align: right; 
+    }
+
+    .btn-custom {
+        padding: 10px 25px;
+        border-radius: 5px;
+        text-decoration: none;
+        color: white;
+        font-weight: 500;
+        transition: background-color 0.3s ease, box-shadow 0.3s ease;
+        display: inline-block;
+        border: none;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        margin-left: 10px;
+    }
+
+    .btn-edit {
+        background-color: #E91E63; 
+    }
+
+        .btn-edit:hover {
+            background-color: #c2185b; 
+            color: white;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+    .btn-back {
+        background-color: #6c757d; =
+    }
+
+        .btn-back:hover {
+            background-color: #5a6268;
+            color: white;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+</style>
+
+<h1 class="details-title">Moj profil</h1>
+
+<div class="details-card">
+    <h4>@Model.ime @Model.prezime</h4>
     <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.username)
+    <dl class="row details-list">
+        <dt class="col-sm-3">
+            Korisničko ime
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-sm-9">
             @Html.DisplayFor(model => model.username)
         </dd>
-        <dt class = "col-sm-2">
+
+        <dt class="col-sm-3">
             @Html.DisplayNameFor(model => model.ime)
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-sm-9">
             @Html.DisplayFor(model => model.ime)
         </dd>
-        <dt class = "col-sm-2">
+
+        <dt class="col-sm-3">
             @Html.DisplayNameFor(model => model.prezime)
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-sm-9">
             @Html.DisplayFor(model => model.prezime)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.datumRodjenja)
+
+        <dt class="col-sm-3">
+            Datum rođenja
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-sm-9">
             @Html.DisplayFor(model => model.datumRodjenja)
         </dd>
-        <dt class = "col-sm-2">
+
+        <dt class="col-sm-3">
             @Html.DisplayNameFor(model => model.email)
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-sm-9">
             @Html.DisplayFor(model => model.email)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.brojTelefona)
+
+        <dt class="col-sm-3">
+            Broj telefona
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-sm-9">
             @Html.DisplayFor(model => model.brojTelefona)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.lozinka)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.lozinka)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.uloga)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.uloga)
-        </dd>
+       
     </dl>
 </div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model?.korisnikId">Edit</a> |
-    <a asp-action="Index">Back to List</a>
-</div>
+

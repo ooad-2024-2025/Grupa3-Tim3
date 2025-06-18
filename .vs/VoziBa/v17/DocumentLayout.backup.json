@@ -1,14 +1,54 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\Korisnik\\Desktop\\ooad\\Grupa3-Tim3\\",
+  "WorkspaceRootPath": "C:\\Users\\DT User\\Desktop\\ooad fin\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{C2A77B10-F454-4296-B92E-D85741EB8977}|VoziBa.csproj|c:\\users\\korisnik\\desktop\\ooad\\grupa3-tim3\\controllers\\korisnikscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C2A77B10-F454-4296-B92E-D85741EB8977}|VoziBa.csproj|solutionrelative:controllers\\korisnikscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{C2A77B10-F454-4296-B92E-D85741EB8977}|VoziBa.csproj|c:\\users\\dt user\\desktop\\ooad fin\\views\\korisniks\\pregledrezervacijavlasnik.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{C2A77B10-F454-4296-B92E-D85741EB8977}|VoziBa.csproj|solutionrelative:views\\korisniks\\pregledrezervacijavlasnik.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C2A77B10-F454-4296-B92E-D85741EB8977}|VoziBa.csproj|c:\\users\\korisnik\\desktop\\ooad\\grupa3-tim3\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{C2A77B10-F454-4296-B92E-D85741EB8977}|VoziBa.csproj|c:\\users\\dt user\\desktop\\ooad fin\\views\\voziloes\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{C2A77B10-F454-4296-B92E-D85741EB8977}|VoziBa.csproj|solutionrelative:views\\voziloes\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C2A77B10-F454-4296-B92E-D85741EB8977}|VoziBa.csproj|c:\\users\\dt user\\desktop\\ooad fin\\views\\voziloes\\detalji.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{C2A77B10-F454-4296-B92E-D85741EB8977}|VoziBa.csproj|solutionrelative:views\\voziloes\\detalji.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C2A77B10-F454-4296-B92E-D85741EB8977}|VoziBa.csproj|c:\\users\\dt user\\desktop\\ooad fin\\voziba.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{C2A77B10-F454-4296-B92E-D85741EB8977}|VoziBa.csproj|solutionrelative:voziba.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C2A77B10-F454-4296-B92E-D85741EB8977}|VoziBa.csproj|c:\\users\\dt user\\desktop\\ooad fin\\views\\voziloes\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{C2A77B10-F454-4296-B92E-D85741EB8977}|VoziBa.csproj|solutionrelative:views\\voziloes\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C2A77B10-F454-4296-B92E-D85741EB8977}|VoziBa.csproj|c:\\users\\dt user\\desktop\\ooad fin\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{C2A77B10-F454-4296-B92E-D85741EB8977}|VoziBa.csproj|solutionrelative:views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C2A77B10-F454-4296-B92E-D85741EB8977}|VoziBa.csproj|c:\\users\\dt user\\desktop\\ooad fin\\controllers\\rezervacijascontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C2A77B10-F454-4296-B92E-D85741EB8977}|VoziBa.csproj|solutionrelative:controllers\\rezervacijascontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C2A77B10-F454-4296-B92E-D85741EB8977}|VoziBa.csproj|c:\\users\\dt user\\desktop\\ooad fin\\views\\korisniks\\pregledrezervacijakorisniks.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{C2A77B10-F454-4296-B92E-D85741EB8977}|VoziBa.csproj|solutionrelative:views\\korisniks\\pregledrezervacijakorisniks.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C2A77B10-F454-4296-B92E-D85741EB8977}|VoziBa.csproj|c:\\users\\dt user\\desktop\\ooad fin\\views\\rezervacijas\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{C2A77B10-F454-4296-B92E-D85741EB8977}|VoziBa.csproj|solutionrelative:views\\rezervacijas\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C2A77B10-F454-4296-B92E-D85741EB8977}|VoziBa.csproj|c:\\users\\dt user\\desktop\\ooad fin\\controllers\\voziloescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C2A77B10-F454-4296-B92E-D85741EB8977}|VoziBa.csproj|solutionrelative:controllers\\voziloescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C2A77B10-F454-4296-B92E-D85741EB8977}|VoziBa.csproj|c:\\users\\dt user\\desktop\\ooad fin\\views\\voziloes\\objavi.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{C2A77B10-F454-4296-B92E-D85741EB8977}|VoziBa.csproj|solutionrelative:views\\voziloes\\objavi.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C2A77B10-F454-4296-B92E-D85741EB8977}|VoziBa.csproj|c:\\users\\dt user\\desktop\\ooad fin\\views\\korisniks\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{C2A77B10-F454-4296-B92E-D85741EB8977}|VoziBa.csproj|solutionrelative:views\\korisniks\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
   ],
   "DocumentGroupContainers": [
@@ -18,33 +58,153 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 6,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "KorisniksController.cs",
-              "DocumentMoniker": "C:\\Users\\Korisnik\\Desktop\\ooad\\Grupa3-Tim3\\Controllers\\KorisniksController.cs",
-              "RelativeDocumentMoniker": "Controllers\\KorisniksController.cs",
-              "ToolTip": "C:\\Users\\Korisnik\\Desktop\\ooad\\Grupa3-Tim3\\Controllers\\KorisniksController.cs*",
-              "RelativeToolTip": "Controllers\\KorisniksController.cs*",
-              "ViewState": "AgIAABwAAAAAAAAAAAAQwB8AAABEAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-18T18:04:28.913Z",
+              "DocumentIndex": 1,
+              "Title": "Details.cshtml",
+              "DocumentMoniker": "C:\\Users\\DT User\\Desktop\\ooad fin\\Views\\Voziloes\\Details.cshtml",
+              "RelativeDocumentMoniker": "Views\\Voziloes\\Details.cshtml",
+              "ToolTip": "C:\\Users\\DT User\\Desktop\\ooad fin\\Views\\Voziloes\\Details.cshtml",
+              "RelativeToolTip": "Views\\Voziloes\\Details.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAASAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-06-18T21:01:46.006Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "_Layout.cshtml",
-              "DocumentMoniker": "C:\\Users\\Korisnik\\Desktop\\ooad\\Grupa3-Tim3\\Views\\Shared\\_Layout.cshtml",
-              "RelativeDocumentMoniker": "Views\\Shared\\_Layout.cshtml",
-              "ToolTip": "C:\\Users\\Korisnik\\Desktop\\ooad\\Grupa3-Tim3\\Views\\Shared\\_Layout.cshtml",
-              "RelativeToolTip": "Views\\Shared\\_Layout.cshtml",
-              "ViewState": "AgIAAKIAAAAAAAAAAAAAALcAAABlAAAAAAAAAA==",
+              "DocumentIndex": 7,
+              "Title": "PregledRezervacijaKorisniks.cshtml",
+              "DocumentMoniker": "C:\\Users\\DT User\\Desktop\\ooad fin\\Views\\Korisniks\\PregledRezervacijaKorisniks.cshtml",
+              "RelativeDocumentMoniker": "Views\\Korisniks\\PregledRezervacijaKorisniks.cshtml",
+              "ToolTip": "C:\\Users\\DT User\\Desktop\\ooad fin\\Views\\Korisniks\\PregledRezervacijaKorisniks.cshtml",
+              "RelativeToolTip": "Views\\Korisniks\\PregledRezervacijaKorisniks.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAnAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-06-18T17:57:14.524Z",
+              "WhenOpened": "2025-06-18T20:53:45.175Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\DT User\\Desktop\\ooad fin\\Views\\Rezervacijas\\Index.cshtml",
+              "RelativeDocumentMoniker": "Views\\Rezervacijas\\Index.cshtml",
+              "ToolTip": "C:\\Users\\DT User\\Desktop\\ooad fin\\Views\\Rezervacijas\\Index.cshtml",
+              "RelativeToolTip": "Views\\Rezervacijas\\Index.cshtml",
+              "ViewState": "AgIAACcAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-06-18T20:51:06.276Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "C:\\Users\\DT User\\Desktop\\ooad fin\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "C:\\Users\\DT User\\Desktop\\ooad fin\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "Views\\Shared\\_Layout.cshtml",
+              "ViewState": "AgIAAKIAAAAAAAAAAAAAAK4AAABcAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-06-18T20:48:22.986Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "VoziBa.csproj",
+              "DocumentMoniker": "C:\\Users\\DT User\\Desktop\\ooad fin\\VoziBa.csproj",
+              "RelativeDocumentMoniker": "VoziBa.csproj",
+              "ToolTip": "C:\\Users\\DT User\\Desktop\\ooad fin\\VoziBa.csproj",
+              "RelativeToolTip": "VoziBa.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-06-18T20:42:23.075Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "VoziloesController.cs",
+              "DocumentMoniker": "C:\\Users\\DT User\\Desktop\\ooad fin\\Controllers\\VoziloesController.cs",
+              "RelativeDocumentMoniker": "Controllers\\VoziloesController.cs",
+              "ToolTip": "C:\\Users\\DT User\\Desktop\\ooad fin\\Controllers\\VoziloesController.cs",
+              "RelativeToolTip": "Controllers\\VoziloesController.cs",
+              "ViewState": "AgIAABMBAAAAAAAAAAAkwBwBAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-18T20:21:03.171Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "PregledRezervacijaVlasnik.cshtml",
+              "DocumentMoniker": "C:\\Users\\DT User\\Desktop\\ooad fin\\Views\\Korisniks\\PregledRezervacijaVlasnik.cshtml",
+              "RelativeDocumentMoniker": "Views\\Korisniks\\PregledRezervacijaVlasnik.cshtml",
+              "ToolTip": "C:\\Users\\DT User\\Desktop\\ooad fin\\Views\\Korisniks\\PregledRezervacijaVlasnik.cshtml*",
+              "RelativeToolTip": "Views\\Korisniks\\PregledRezervacijaVlasnik.cshtml*",
+              "ViewState": "AgIAAFwAAAAAAAAAAAAgwIsAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-06-18T20:54:08.935Z",
               "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Detalji.cshtml",
+              "DocumentMoniker": "C:\\Users\\DT User\\Desktop\\ooad fin\\Views\\Voziloes\\Detalji.cshtml",
+              "RelativeDocumentMoniker": "Views\\Voziloes\\Detalji.cshtml",
+              "ToolTip": "C:\\Users\\DT User\\Desktop\\ooad fin\\Views\\Voziloes\\Detalji.cshtml",
+              "RelativeToolTip": "Views\\Voziloes\\Detalji.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAATAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-06-18T21:01:26.822Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "RezervacijasController.cs",
+              "DocumentMoniker": "C:\\Users\\DT User\\Desktop\\ooad fin\\Controllers\\RezervacijasController.cs",
+              "RelativeDocumentMoniker": "Controllers\\RezervacijasController.cs",
+              "ToolTip": "C:\\Users\\DT User\\Desktop\\ooad fin\\Controllers\\RezervacijasController.cs",
+              "RelativeToolTip": "Controllers\\RezervacijasController.cs",
+              "ViewState": "AgIAAC4BAAAAAAAAAAAswDwBAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-18T20:21:02.504Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\DT User\\Desktop\\ooad fin\\Views\\Voziloes\\Index.cshtml",
+              "RelativeDocumentMoniker": "Views\\Voziloes\\Index.cshtml",
+              "ToolTip": "C:\\Users\\DT User\\Desktop\\ooad fin\\Views\\Voziloes\\Index.cshtml",
+              "RelativeToolTip": "Views\\Voziloes\\Index.cshtml",
+              "ViewState": "AgIAAEkAAAAAAAAAAAAwwE4AAAAeAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-06-18T20:08:17.363Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "Create.cshtml",
+              "DocumentMoniker": "C:\\Users\\DT User\\Desktop\\ooad fin\\Views\\Korisniks\\Create.cshtml",
+              "RelativeDocumentMoniker": "Views\\Korisniks\\Create.cshtml",
+              "ToolTip": "C:\\Users\\DT User\\Desktop\\ooad fin\\Views\\Korisniks\\Create.cshtml",
+              "RelativeToolTip": "Views\\Korisniks\\Create.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-06-18T20:03:16.887Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "Objavi.cshtml",
+              "DocumentMoniker": "C:\\Users\\DT User\\Desktop\\ooad fin\\Views\\Voziloes\\Objavi.cshtml",
+              "RelativeDocumentMoniker": "Views\\Voziloes\\Objavi.cshtml",
+              "ToolTip": "C:\\Users\\DT User\\Desktop\\ooad fin\\Views\\Voziloes\\Objavi.cshtml",
+              "RelativeToolTip": "Views\\Voziloes\\Objavi.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-06-18T19:59:05.705Z"
             }
           ]
         }

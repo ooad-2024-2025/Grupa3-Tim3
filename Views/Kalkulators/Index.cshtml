@@ -12,7 +12,7 @@
                 @Html.AntiForgeryToken()
 
                 <div class="form-group">
-                    <label for="voziloId">ODABRANO AUTO</label>
+                    <label for="voziloId" style="color: #E91E63;">ODABRANO AUTO</label>
                     <select id="voziloId" name="voziloId" class="form-control" required>
                         <option value="">Odaberite auto</option>
                         @foreach (var vozilo in Model)
@@ -23,7 +23,7 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="brojDanaRezervacije">BROJ DANA IZNAJMLJIVANJA</label>
+                    <label for="brojDanaRezervacije" style="color: #E91E63;">BROJ DANA IZNAJMLJIVANJA</label>
                     <select id="brojDanaRezervacije" name="brojDanaRezervacije" class="form-control" required>
                         <option value="">Odaberite broj dana</option>
                         @for (int i = 1; i <= 30; i++)

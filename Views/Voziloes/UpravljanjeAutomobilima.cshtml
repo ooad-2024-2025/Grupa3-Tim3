@@ -7,17 +7,13 @@
 }
 
 <style>
-    /* Stilovi za stranicu Upravljanje Automobilima */
-
-    /* 1. ISPRAVKA: Uklonili smo display:flex sa body taga.
-           Sada samo definišemo pozadinsku sliku za ovu stranicu. */
+    
     body {
         background: linear-gradient(rgba(255,255,255,0.9), rgba(255,255,255,0.9)), url('/images/lineupsunc.jpg') center/cover no-repeat;
-        background-attachment: fixed; /* Opciono, čini da se pozadina ne pomjera pri skrolanju */
+        background-attachment: fixed; 
     }
 
-    /* 2. ISPRAVKA: Dodali smo 'auto' za lijevu i desnu marginu
-           da bi se ovaj kontejner sam centrirao horizontalno. */
+    
     .content-wrapper {
         background-color: rgba(255, 255, 255, 0.95);
         padding: 40px 60px;
@@ -26,10 +22,9 @@
         text-align: center;
         width: 90%;
         max-width: 1000px;
-        margin: 40px auto; /* KLJUČNA ISPRAVKA: 40px gore/dole, auto lijevo/desno */
+        margin: 40px auto; 
     }
 
-    /* Ostatak stilova ostaje isti, nije ih potrebno mijenjati */
     .main-heading {
         color: #ec007f;
         font-size: 3.2em;

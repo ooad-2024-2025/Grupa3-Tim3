@@ -1,0 +1,12 @@
+﻿@model VoziBa.Models.Vozilo
+@{
+    ViewData["Title"] = "Detalji oglasa";
+}
+
+<h2>@Model.brend @Model.model</h2>
+<img src="@Model.slikaPath" style="width:300px;" />
+<p><strong>Opis:</strong> @Model.opis</p>
+<p><strong>Cijena:</strong> @Model.cijenaNajma KM/dan</p>
+<p><strong>Boja:</strong> @Model.boja</p>
+<p><strong>Grad:</strong> @Model.grad</p>
+<p><strong>Lokacija (lat, lng):</strong> @Model.Latitude, @Model.Longitude</p

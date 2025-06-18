@@ -1,4 +1,5 @@
-﻿@model IEnumerable<VoziBa.Models.Rezervacija>
+﻿@* CHANGE 1: The model type is now the ViewModel you are passing from the controller *@
+@model IEnumerable<VoziBa.Models.VlasnikRezervacijaViewModel>
 
 @{
     ViewData["Title"] = "Pregled Rezervacija";
@@ -118,17 +119,16 @@
                 <div class="reservation-item">
                     <i class="fas fa-check-circle"></i>
                     <div class="text-content">
-                        @if (item.Vozilo != null)
-                        {
-                            <span>@item.Vozilo.model</span> @* Accessing 'model' (lowercase) property of Vozilo *@
-                        }
-                        else
-                        {
-                            <span>Vozilo nije pronađeno</span>
-                        }
-                        <span class="dates">(@item.datumPocetka.ToShortDateString() - @item.datumZavrsetka.ToShortDateString())</span>
+
+                        @* CHANGE 2: Access the properties of the ViewModel directly *@
+                        <span>@item.VoziloModel</span>
+
+                        @* CHANGE 3: Use the ViewModel's property names (PascalCase) *@
+                        <span class="dates">(@item.DatumPocetka.ToShortDateString() - @item.DatumZavrsetka.ToShortDateString())</span>
                     </div>
-                    <a asp-controller="Rezervacijas" asp-action="Details" asp-route-id="@item.rezervacijaID" class="btn btn-sm btn-info ml-3">Detalji</a>
+
+                    @* CHANGE 4: Use the ViewModel's ID property for the route *@
+                    <a asp-controller="Rezervacijas" asp-action="Details" asp-route-id="@item.RezervacijaID" class="btn btn-sm btn-info ml-3">Detalji</a>
                 </div>
             }
         </div>

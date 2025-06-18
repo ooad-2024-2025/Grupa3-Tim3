@@ -34,7 +34,7 @@ namespace VoziBa.Controllers
         }
 
         // GET: Voziloes
-        public async Task<IActionResult> Index(string selectedBrend, string selectedGrad)
+        public async Task<IActionResult> Index(string selectedBrend, string selectedGrad, string selectedTransmisija, string selectedGorivo)
         {
             IQueryable<Vozilo> vozila = _context.Vozilo;
 
@@ -78,6 +78,42 @@ namespace VoziBa.Controllers
                 }
             }
 
+            if (!string.IsNullOrEmpty(selectedTransmisija) && selectedTransmisija != "Sve transmisije")
+            {
+                // We need to find the Enum value based on the DisplayName
+                Transmisija? transmisijaEnum = null;
+                foreach (Transmisija t in Enum.GetValues(typeof(Transmisija)))
+                {
+                    if (t.GetDisplayName() == selectedTransmisija)
+                    {
+                        transmisijaEnum = t;
+                        break;
+                    }
+                }
+
+                if (transmisijaEnum.HasValue)
+                {
+                    vozila = vozila.Where(v => v.transmisija == transmisijaEnum.Value);
+                }
+            }
+            if (!string.IsNullOrEmpty(selectedGorivo) && selectedGorivo != "Sva goriva")
+            {
+                // We need to find the Enum value based on the DisplayName
+                Gorivo? gorivoEnum = null;
+                foreach (Gorivo g in Enum.GetValues(typeof(Gorivo)))
+                {
+                    if (g.GetDisplayName() == selectedGorivo)
+                    {
+                        gorivoEnum = g;
+                        break;
+                    }
+                }
+
+                if (gorivoEnum.HasValue)
+                {
+                    vozila = vozila.Where(v => v.tipGoriva == gorivoEnum.Value);
+                }
+            }
             // Priprema liste jedinstvenih marki za dropdown
             var uniqueBrands = Enum.GetValues(typeof(Brend))
                                    .Cast<Brend>()
@@ -96,6 +132,22 @@ namespace VoziBa.Controllers
                                    .ToList();
             uniqueCities.Insert(0, new { Value = "Svi gradovi", Text = "Svi gradovi" });
             ViewBag.Gradovi = new SelectList(uniqueCities, "Value", "Text", selectedGrad);
+
+            var uniqueTransmissions = Enum.GetValues(typeof(Transmisija))
+                            .Cast<Transmisija>()
+                            .Select(t => new { Value = t.GetDisplayName(), Text = t.GetDisplayName() })
+                            .OrderBy(t => t.Text)
+                            .ToList();
+            uniqueTransmissions.Insert(0, new { Value = "Sve transmisije", Text = "Sve transmisije" }); // Or whatever default text makes sense
+            ViewBag.Transmisije = new SelectList(uniqueTransmissions, "Value", "Text", selectedTransmisija);
+
+            var uniqueFuels = Enum.GetValues(typeof(Gorivo))
+                      .Cast<Gorivo>()
+                      .Select(f => new { Value = f.GetDisplayName(), Text = f.GetDisplayName() })
+                      .OrderBy(f => f.Text)
+                      .ToList();
+            uniqueFuels.Insert(0, new { Value = "Sva goriva", Text = "Sva goriva" }); // Or whatever default text makes sense
+            ViewBag.Goriva = new SelectList(uniqueFuels, "Value", "Text", selectedGorivo);
 
             return View(await vozila.ToListAsync());
         }
@@ -229,6 +281,12 @@ namespace VoziBa.Controllers
         public async Task<IActionResult> UpravljanjeAutomobilima()
         {
             return View(await _context.Vozilo.ToListAsync());
+        }
+
+        [HttpGet]
+        public IActionResult Objavi()
+        {
+            return View(); 
         }
     }
 }

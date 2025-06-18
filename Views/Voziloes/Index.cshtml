@@ -1,5 +1,5 @@
 ﻿@model IEnumerable<VoziBa.Models.Vozilo>
-@using Microsoft.AspNetCore.Http // Potrebno za pristup sesiji
+@using Microsoft.AspNetCore.Http
 
 @{
     ViewData["Title"] = "Trenutna ponuda vozila:";
@@ -13,13 +13,15 @@
     @if (userRole == "vlasnik" || userRole == "administrator")
     {
         <div class="text-right mb-3">
-            <a asp-action="Create" class="btn btn-primary">Dodaj Novo Vozilo</a>
+            <a asp-controller="Voziloes" asp-action="Objavi" class="btn" style="background-color: #E91E63; color: white;">
+                Dodaj Novo Vozilo
+            </a>
         </div>
     }
 
     <form asp-action="Index" method="get" class="mb-4">
         <div class="row">
-            <div class="col-md-4">
+            <div class="col-md-2">
                 <div class="form-group">
                     <label for="selectedBrend">Marka vozila:</label>
                     <select name="selectedBrend" id="selectedBrend" class="form-control" onchange="this.form.submit()">
@@ -30,7 +32,7 @@
                     </select>
                 </div>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-2">
                 <div class="form-group">
                     <label for="selectedGrad">Grad:</label>
                     <select name="selectedGrad" id="selectedGrad" class="form-control" onchange="this.form.submit()">
@@ -41,8 +43,36 @@
                     </select>
                 </div>
             </div>
-            <div class="col-md-4 d-flex align-items-end">
-                <button type="submit" class="btn btn-info w-100">Filtriraj</button>
+            <div class="col-md-2">
+                <div class="form-group">
+                    <label for="selectedTransmisija">Transmisija:</label>
+                    <select name="selectedTransmisija" id="selectedTransmisija" class="form-control" onchange="this.form.submit()">
+                        @* Pretpostavka je da se lista popunjava iz ViewBag-a *@
+                        @foreach (var item in ViewBag.Transmisije)
+                        {
+                            <option value="@item.Value" selected="@(item.Selected)">@item.Text</option>
+                        }
+                    </select>
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div class="form-group">
+                    <label for="selectedGorivo">Gorivo:</label>
+                    <select name="selectedGorivo" id="selectedGorivo" class="form-control" onchange="this.form.submit()">
+                        @* Pretpostavka je da se lista popunjava iz ViewBag-a *@
+                        @foreach (var item in ViewBag.Goriva)
+                        {
+                            <option value="@item.Value" selected="@(item.Selected)">@item.Text</option>
+                        }
+                    </select>
+                </div>
+            </div>
+            <div class="col-md-4">
+                @* Removed d-flex align-items-end *@
+                <div class="form-group" style="padding-top: 32px;">
+                    @* Added padding-top to align the button * If you have more options just change the padding top *@
+                    <button type="submit" class="btn btn-info w-100">Filtriraj</button>
+                </div>
             </div>
         </div>
     </form>
@@ -51,16 +81,14 @@
         {
             <div class="vehicle-card">
                 <div class="vehicle-image-container">
-                    <img src="~/images/@vozilo.slikaPath" alt="@vozilo.brend @vozilo.model" onerror="this.onerror=null;this.src='/images/placeholder.png';" />
+                    <img src="@vozilo.slikaPath" alt="@vozilo.brend @vozilo.model" onerror="this.onerror=null;this.src='/images/placeholder.png';" />
                 </div>
                 <div class="vehicle-details">
                     <h3 class="model-name">@vozilo.brend @vozilo.model</h3>
                     <p><strong>Grad:</strong> @vozilo.grad</p> @* Dodano prikaz grada *@
                     <a asp-action="Details" asp-route-id="@vozilo.voziloId" class="btn-details">Pogledaj detalje</a>
 
-                    @* Prikaz dugmadi "Uredi" i "Obriši" SAMO AKO je prijavljeni korisnik administrator. *@
-                    @* Ako želite da vlasnik može uređivati samo svoja vozila, ta logika bi trebala biti u kontroleru,
-                ali radi prikaza dugmadi, možete dodati ovdje (mada je manje sigurno bez serverske provjere). *@
+
                     @if (userRole == "administrator")
                     {
                         <div class="action-buttons mt-2">
@@ -68,14 +96,7 @@
                             <a asp-controller="Voziloes" asp-action="Delete" asp-route-id="@vozilo.voziloId" class="btn btn-danger btn-sm">Obriši</a>
                         </div>
                     }
-                    @* Ako želite da vlasnik vidi dugmad za svoja vozila (bez obzira na serversku provjeru u kontroleru): *@
-                    @* else if (userRole == "vlasnik" && Context.Session.GetString("LoggedInUserId") != null && int.Parse(Context.Session.GetString("LoggedInUserId")) == vozilo.korisnikId)
-                {
-                <div class="action-buttons mt-2">
-                <a asp-controller="Vozila" asp-action="Edit" asp-route-id="@vozilo.voziloId" class="btn btn-warning btn-sm">Uredi</a>
-                <a asp-controller="Vozila" asp-action="Delete" asp-route-id="@vozilo.voziloId" class="btn btn-danger btn-sm">Obriši</a>
-                </div>
-                } *@
+
                 </div>
             </div>
         }
@@ -83,6 +104,19 @@
 </div>
 
 <style>
+
+    body {
+        background-image: linear-gradient(rgba(255,255,255,0.7), rgba(255,255,255,0.7)), url('/images/lineupsunc.jpg');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        margin: 0;
+        padding: 50px;
+    }
     /* Opcionalno, dodajte malo stila za dugmad i layout */
     .vozila-container {
         padding: 20px;
@@ -137,7 +171,7 @@
         display: inline-block;
         margin-top: 10px;
         padding: 8px 15px;
-        background-color: #007bff;
+        background-color: #E91E63;
         color: white;
         text-decoration: none;
         border-radius: 5px;
@@ -145,7 +179,7 @@
     }
 
         .btn-details:hover {
-            background-color: #0056b3;
+            background-color: #E91E63;
         }
 
     .action-buttons {
@@ -183,7 +217,7 @@
     }
 
     .btn-info {
-        background-color: #17a2b8;
+        background-color: #E91E63;
         color: white;
         border: none;
         padding: 10px 15px;
@@ -192,6 +226,6 @@
     }
 
         .btn-info:hover {
-            background-color: #138496;
+            background-color: #E91E63;
         }
 </style>

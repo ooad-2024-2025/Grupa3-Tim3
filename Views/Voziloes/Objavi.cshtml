@@ -1,0 +1,108 @@
+﻿@model VoziBa.Models.Vozilo
+@{
+    ViewData["Title"] = "Objavi oglas";
+}
+
+body {
+        font-family:  sans-serif;
+  background-image: linear-gradient(rgba(255,255,255,0.7), rgba(255,255,255,0.7)), url('/images/lineupsunc.jpg');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        margin: 0;
+        padding: 50px;
+
+    }
+
+<h2>Objavi oglas</h2>
+
+<form asp-action="Objavi" method="post" enctype="multipart/form-data">
+    <div class="form-group">
+        <label asp-for="model"></label>
+        <input asp-for="model" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="godinaProizvodnje"></label>
+        <input asp-for="godinaProizvodnje" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="brend"></label>
+        <select asp-for="brend" asp-items="Html.GetEnumSelectList<VoziBa.Models.Brend>()" class="form-control"></select>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="boja"></label>
+        <input asp-for="boja" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="tipGoriva"></label>
+        <select asp-for="tipGoriva" asp-items="Html.GetEnumSelectList<VoziBa.Models.Gorivo>()" class="form-control"></select>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="transmisija"></label>
+        <select asp-for="transmisija" asp-items="Html.GetEnumSelectList<VoziBa.Models.Transmisija>()" class="form-control"></select>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="cijenaNajma">Cijena najma (KM/dan)</label>
+        <input asp-for="cijenaNajma" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="opis"></label>
+        <textarea asp-for="opis" class="form-control"></textarea>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="grad"></label>
+        <select asp-for="grad" asp-items="Html.GetEnumSelectList<VoziBa.Models.Grad>()" class="form-control"></select>
+    </div>
+
+    <div class="form-group">
+        <label>Slika:</label>
+        <input type="file" name="slika" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label>Lokacija preuzimanja (pomični marker na mapi):</label>
+        <div id="map" style="height: 300px;"></div>
+        <input type="hidden" asp-for="Latitude" />
+        <input type="hidden" asp-for="Longitude" />
+    </div>
+
+    <button type="submit" class="btn btn-success mt-3">Objavi oglas</button>
+</form>
+
+@section Scripts {
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+
+    <script>
+        var map = L.map('map').setView([43.8563, 18.4131], 13); // Sarajevo
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 18
+        }).addTo(map);
+
+        var marker = L.marker([43.8563, 18.4131], { draggable: true }).addTo(map);
+
+        function updateCoords(lat, lng) {
+            document.getElementById("Latitude").value = lat;
+            document.getElementById("Longitude").value = lng;
+        }
+
+        marker.on('dragend', function (e) {
+            var latlng = marker.getLatLng();
+            updateCoords(latlng.lat, latlng.lng);
+        });
+
+        updateCoords(43.8563, 18.4131);
+    </script>
+}
