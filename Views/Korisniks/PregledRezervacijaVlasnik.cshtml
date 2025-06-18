@@ -1,0 +1,140 @@
+﻿@model IEnumerable<VoziBa.Models.Rezervacija>
+
+@{
+    ViewData["Title"] = "Pregled Rezervacija";
+}
+
+<style>
+
+    body {
+        padding-top: 80px;
+    }
+
+    .reservations-container {
+        padding: 50px 20px;
+        background-color: #f8f9fa;
+        min-height: calc(100vh - 100px);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        background-image: url('/images/background_cars.jpg');
+        background-size: cover;
+        background-position: center;
+        color: #333;
+    }
+
+    .reservations-header {
+        font-size: 2.5em;
+        color: #ec007f;
+        margin-bottom: 30px;
+        font-weight: bold;
+        text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+    }
+
+    .reservations-subheader {
+        font-size: 1.2em;
+        color: #555;
+        margin-bottom: 40px;
+    }
+
+    .reservation-list {
+        width: 100%;
+        max-width: 600px;
+        margin-top: 20px;
+    }
+
+    .reservation-item {
+        background-color: white;
+        border-radius: 8px;
+        padding: 15px 20px;
+        margin-bottom: 15px;
+        display: flex;
+        align-items: center;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        transition: transform 0.2s ease-in-out;
+        justify-content: space-between;
+    }
+
+        .reservation-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .reservation-item i {
+            color: #28a745;
+            font-size: 1.5em;
+            margin-right: 15px;
+        }
+
+        .reservation-item .text-content {
+            flex-grow: 1;
+            text-align: left;
+        }
+
+            .reservation-item .text-content span {
+                display: block;
+                font-size: 1.1em;
+                font-weight: 600;
+                color: #333;
+            }
+
+            .reservation-item .text-content .dates {
+                font-size: 0.9em;
+                color: #777;
+                font-weight: normal;
+            }
+
+    .no-reservations {
+        font-size: 1.3em;
+        color: #777;
+        margin-top: 50px;
+    }
+
+    .btn-info {
+        background-color: #17a2b8;
+        border-color: #17a2b8;
+        color: white;
+    }
+
+        .btn-info:hover {
+            background-color: #138496;
+            border-color: #117a8b;
+        }
+</style>
+
+<div class="reservations-container">
+    <h1 class="reservations-header">PREGLED REZERVACIJA</h1>
+    <p class="reservations-subheader">Ispod je lista vaših vozila za rezervaciju.</p>
+
+    @if (!Model.Any())
+    {
+        <p class="no-reservations">Trenutno nemate aktivnih rezervacija.</p>
+    }
+    else
+    {
+        <div class="reservation-list">
+            @foreach (var item in Model)
+            {
+                <div class="reservation-item">
+                    <i class="fas fa-check-circle"></i>
+                    <div class="text-content">
+                        @if (item.Vozilo != null)
+                        {
+                            <span>@item.Vozilo.model</span> @* Accessing 'model' (lowercase) property of Vozilo *@
+                        }
+                        else
+                        {
+                            <span>Vozilo nije pronađeno</span>
+                        }
+                        <span class="dates">(@item.datumPocetka.ToShortDateString() - @item.datumZavrsetka.ToShortDateString())</span>
+                    </div>
+                    <a asp-controller="Rezervacijas" asp-action="Details" asp-route-id="@item.rezervacijaID" class="btn btn-sm btn-info ml-3">Detalji</a>
+                </div>
+            }
+        </div>
+    }
+</div>
+
+@section Scripts {
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
+}

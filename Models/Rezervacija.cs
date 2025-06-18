@@ -16,6 +16,7 @@ namespace VoziBa.Models
 
         [ForeignKey("Vozilo")]
         public int voziloID { get; set; }
+        public Vozilo Vozilo { get; set; }
 
         [Required(ErrorMessage = "Datum pocetka rezervacije je obavezan. ")]
         [DataType(DataType.Date)]

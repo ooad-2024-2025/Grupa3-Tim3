@@ -37,5 +37,8 @@ namespace VoziBa.Models
 
         [Required(ErrorMessage = "Uloga je obavezno polje.")]
         public Uloga uloga { get; set; }
+
+        
     }
+
 }

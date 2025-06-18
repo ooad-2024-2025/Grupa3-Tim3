@@ -355,5 +355,29 @@ namespace VoziBa.Controllers
                 return RedirectToAction("Odjava");
             }
         }
+        public async Task<IActionResult> PregledRezervacijaVlasnik()
+        {
+            var loggedInUserIdString = HttpContext.Session.GetString("LoggedInUserId");
+
+            if (string.IsNullOrEmpty(loggedInUserIdString))
+            {
+                TempData["ErrorMessage"] = "Molimo prijavite se za pregled rezervacija.";
+                return RedirectToAction("Prijava", "Korisniks");
+            }
+
+            int userId;
+            if (!int.TryParse(loggedInUserIdString, out userId))
+            {
+                TempData["ErrorMessage"] = "Došlo je do greške prilikom preuzimanja korisničkih podataka. ID korisnika nije u ispravnom format.";
+                return RedirectToAction("Prijava", "Korisniks");
+            }
+
+            var userReservations = await _context.Rezervacija
+                                                .Where(r => r.osobaId == userId)
+                                                .Include(r => r.Vozilo)
+                                                .ToListAsync();
+
+            return View(userReservations);
+        }
     }
 }
