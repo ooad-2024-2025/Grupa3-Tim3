@@ -3,8 +3,6 @@
 
 @{
     ViewData["Title"] = "Trenutna ponuda vozila:";
-    // Dohvaćanje uloge korisnika iz sesije.
-    // Važno: Pretpostavlja se da je "UserRole" pravilno postavljen u sesiji negdje u vašoj aplikaciji.
     var userRole = Context.Session.GetString("UserRole");
 }
 
@@ -19,6 +17,35 @@
         </div>
     }
 
+    <form asp-action="Index" method="get" class="mb-4">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label for="selectedBrend">Marka vozila:</label>
+                    <select name="selectedBrend" id="selectedBrend" class="form-control" onchange="this.form.submit()">
+                        @foreach (var item in ViewBag.Brendovi)
+                        {
+                            <option value="@item.Value" selected="@(item.Selected)">@item.Text</option>
+                        }
+                    </select>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label for="selectedGrad">Grad:</label>
+                    <select name="selectedGrad" id="selectedGrad" class="form-control" onchange="this.form.submit()">
+                        @foreach (var item in ViewBag.Gradovi)
+                        {
+                            <option value="@item.Value" selected="@(item.Selected)">@item.Text</option>
+                        }
+                    </select>
+                </div>
+            </div>
+            <div class="col-md-4 d-flex align-items-end">
+                <button type="submit" class="btn btn-info w-100">Filtriraj</button>
+            </div>
+        </div>
+    </form>
     <div class="vehicle-grid">
         @foreach (var vozilo in Model)
         {
@@ -28,6 +55,7 @@
                 </div>
                 <div class="vehicle-details">
                     <h3 class="model-name">@vozilo.brend @vozilo.model</h3>
+                    <p><strong>Grad:</strong> @vozilo.grad</p> @* Dodano prikaz grada *@
                     <a asp-action="Details" asp-route-id="@vozilo.voziloId" class="btn-details">Pogledaj detalje</a>
 
                     @* Prikaz dugmadi "Uredi" i "Obriši" SAMO AKO je prijavljeni korisnik administrator. *@
@@ -36,8 +64,8 @@
                     @if (userRole == "administrator")
                     {
                         <div class="action-buttons mt-2">
-                            <a asp-controller="Vozila" asp-action="Edit" asp-route-id="@vozilo.voziloId" class="btn btn-warning btn-sm">Uredi</a>
-                            <a asp-controller="Vozila" asp-action="Delete" asp-route-id="@vozilo.voziloId" class="btn btn-danger btn-sm">Obriši</a>
+                            <a asp-controller="Voziloes" asp-action="Edit" asp-route-id="@vozilo.voziloId" class="btn btn-warning btn-sm">Uredi</a>
+                            <a asp-controller="Voziloes" asp-action="Delete" asp-route-id="@vozilo.voziloId" class="btn btn-danger btn-sm">Obriši</a>
                         </div>
                     }
                     @* Ako želite da vlasnik vidi dugmad za svoja vozila (bez obzira na serversku provjeru u kontroleru): *@
@@ -130,5 +158,40 @@
         .action-buttons .btn {
             padding: 6px 12px;
             font-size: 0.85em;
+        }
+
+    /* Novi stilovi za filtriranje */
+    .filter-section {
+        background-color: #f8f9fa;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        margin-bottom: 30px;
+    }
+
+    .form-group label {
+        font-weight: bold;
+        margin-bottom: 5px;
+        display: block;
+    }
+
+    .form-control {
+        width: 100%;
+        padding: 8px;
+        border: 1px solid #ced4da;
+        border-radius: 4px;
+    }
+
+    .btn-info {
+        background-color: #17a2b8;
+        color: white;
+        border: none;
+        padding: 10px 15px;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+        .btn-info:hover {
+            background-color: #138496;
         }
 </style>

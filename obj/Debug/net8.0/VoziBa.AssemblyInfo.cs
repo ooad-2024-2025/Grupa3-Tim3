@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("VoziBa")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+0a9b99c77494f252143d67b3a2b63552e94043ce")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+aa410f35583efbbab49a816c041779719dde6a46")]
 [assembly: System.Reflection.AssemblyProductAttribute("VoziBa")]
 [assembly: System.Reflection.AssemblyTitleAttribute("VoziBa")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

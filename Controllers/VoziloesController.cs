@@ -6,9 +6,24 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using VoziBa.Models;
+using System.ComponentModel.DataAnnotations; // Dodano za DisplayName
+using System.Reflection; // Dodano za pristup atributima
+
 
 namespace VoziBa.Controllers
 {
+    public static class EnumExtensions // Helper klasa za dohvaćanje Display Name-a
+    {
+        public static string GetDisplayName(this Enum enumValue)
+        {
+            return enumValue.GetType()
+                            .GetMember(enumValue.ToString())
+                            .FirstOrDefault()
+                            ?.GetCustomAttribute<DisplayAttribute>()
+                            ?.Name ?? enumValue.ToString();
+        }
+    }
+
     public class VoziloesController : Controller
     {
         private readonly ApplicationDbContext _context;
@@ -19,11 +34,73 @@ namespace VoziBa.Controllers
         }
 
         // GET: Voziloes
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string selectedBrend, string selectedGrad)
         {
-            return View(await _context.Vozilo.ToListAsync());
+            IQueryable<Vozilo> vozila = _context.Vozilo;
+
+            // Filtriranje po marki (Brend)
+            if (!string.IsNullOrEmpty(selectedBrend) && selectedBrend != "Svi brendovi")
+            {
+                // Moramo pronaći Enum vrijednost na osnovu DisplayName-a
+                Brend? brendEnum = null;
+                foreach (Brend b in Enum.GetValues(typeof(Brend)))
+                {
+                    if (b.GetDisplayName() == selectedBrend)
+                    {
+                        brendEnum = b;
+                        break;
+                    }
+                }
+
+                if (brendEnum.HasValue)
+                {
+                    vozila = vozila.Where(v => v.brend == brendEnum.Value);
+                }
+            }
+
+            // Filtriranje po gradu (Grad)
+            if (!string.IsNullOrEmpty(selectedGrad) && selectedGrad != "Svi gradovi")
+            {
+                // Moramo pronaći Enum vrijednost na osnovu DisplayName-a
+                Grad? gradEnum = null;
+                foreach (Grad g in Enum.GetValues(typeof(Grad)))
+                {
+                    if (g.GetDisplayName() == selectedGrad)
+                    {
+                        gradEnum = g;
+                        break;
+                    }
+                }
+
+                if (gradEnum.HasValue)
+                {
+                    vozila = vozila.Where(v => v.grad == gradEnum.Value);
+                }
+            }
+
+            // Priprema liste jedinstvenih marki za dropdown
+            var uniqueBrands = Enum.GetValues(typeof(Brend))
+                                   .Cast<Brend>()
+                                   .Select(b => new { Value = b.GetDisplayName(), Text = b.GetDisplayName() })
+                                   .OrderBy(b => b.Text)
+                                   .ToList();
+            uniqueBrands.Insert(0, new { Value = "Svi brendovi", Text = "Svi brendovi" });
+            ViewBag.Brendovi = new SelectList(uniqueBrands, "Value", "Text", selectedBrend);
+
+
+            // Priprema liste jedinstvenih gradova za dropdown
+            var uniqueCities = Enum.GetValues(typeof(Grad))
+                                   .Cast<Grad>()
+                                   .Select(g => new { Value = g.GetDisplayName(), Text = g.GetDisplayName() })
+                                   .OrderBy(g => g.Text)
+                                   .ToList();
+            uniqueCities.Insert(0, new { Value = "Svi gradovi", Text = "Svi gradovi" });
+            ViewBag.Gradovi = new SelectList(uniqueCities, "Value", "Text", selectedGrad);
+
+            return View(await vozila.ToListAsync());
         }
 
+        // Ostatak kontrolera ostaje isti kao u prethodnom kodu
         // GET: Voziloes/Details/5
         public async Task<IActionResult> Details(int? id)
         {
@@ -49,11 +126,9 @@ namespace VoziBa.Controllers
         }
 
         // POST: Voziloes/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("voziloId,korisnikId,godinaProizvodnje,brend,model,boja,tipGoriva,transmisija,cijenaNajma,opis,slikaPath")] Vozilo vozilo)
+        public async Task<IActionResult> Create([Bind("voziloId,korisnikId,godinaProizvodnje,brend,model,boja,tipGoriva,transmisija,cijenaNajma,opis,slikaPath,grad,Latitude,Longitude")] Vozilo vozilo)
         {
             if (ModelState.IsValid)
             {
@@ -81,11 +156,9 @@ namespace VoziBa.Controllers
         }
 
         // POST: Voziloes/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("voziloId,korisnikId,godinaProizvodnje,brend,model,boja,tipGoriva,transmisija,cijenaNajma,opis,slikaPath")] Vozilo vozilo)
+        public async Task<IActionResult> Edit(int id, [Bind("voziloId,korisnikId,godinaProizvodnje,brend,model,boja,tipGoriva,transmisija,cijenaNajma,opis,slikaPath,grad,Latitude,Longitude")] Vozilo vozilo)
         {
             if (id != vozilo.voziloId)
             {
@@ -152,9 +225,9 @@ namespace VoziBa.Controllers
         {
             return _context.Vozilo.Any(e => e.voziloId == id);
         }
+
         public async Task<IActionResult> UpravljanjeAutomobilima()
         {
-            // Ova akcija jednostavno uzima sva vozila iz baze i prosljeđuje ih na View
             return View(await _context.Vozilo.ToListAsync());
         }
     }
